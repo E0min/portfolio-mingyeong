@@ -2,23 +2,14 @@
 
 import { motion } from "motion/react";
 import Image from "next/image";
-import Link from "next/link";
 import styles from "./travel-zine.module.css";
+import SectionNav from "@/components/home/shared/section-nav";
 
 // 이미지 자원들을 컴포넌트 내부에서 응집도 있게 관리하기 위해 임포트합니다.
-import navSheepImg from "../shared/assets/nav-sheep.png"; // 네비게이션 양 이미지 임포트 (고양이에서 양으로 변경)
 import detailBgImg from "../shared/assets/detail-bg.png"; // 배경 이미지 임포트
 import centerPhotoImg from "./assets/center-photo.png"; // 중앙 메인 사진 이미지 임포트
 import earthImg from "./assets/earth.png"; // 지구 이미지 임포트
 import vmCircleImg from "./assets/vm-circle.svg"; // 뷰 모어 원형 SVG 임포트
-
-/* ── 네비 탭 (Figma 402:498~507) — Travel zine 활성 ── */
-const navTabs = [
-  { label: "Mean Girls", number: "[1]", href: "/mean-girls", active: false },
-  { label: "Travel zine", number: "[2]", href: "/travel-zine", active: true },
-  { label: "Name Card", number: "[3]", href: "/name-card", active: false },
-  { label: "Contact", number: "[4]", href: "/#footer", active: false },
-];
 
 export default function TravelZineDetail() {
   return (
@@ -31,21 +22,7 @@ export default function TravelZineDetail() {
         transition={{ duration: 0.5 }}
       >
         {/* ══════ 네비게이션 — 카드 내부 ══════ */}
-        <nav className={styles.nav}>
-          {navTabs.map((tab, i) => (
-            <span key={tab.label} className={styles.navItem}>
-              <Link
-                href={tab.href}
-                className={`${styles.navTab} ${tab.active ? styles.navActive : ""}`}
-              >
-                <span className={styles.navLabel}>{tab.label}</span>
-                <span className={styles.navNum}>{tab.number}</span>
-              </Link>
-              {/* i === 1은 Travel zine 옆 양 (기존 고양이에서 양으로 변경) */}
-              {i === 1 && <img src={navSheepImg.src} alt="" className={styles.navCat} />}
-            </span>
-          ))}
-        </nav>
+        <SectionNav variant="detail" activeTab="Travel zine" />
 
         {/* ── 배경 이미지 (402:479) — opacity 60% ── */}
         <div className={styles.bgImg}>
