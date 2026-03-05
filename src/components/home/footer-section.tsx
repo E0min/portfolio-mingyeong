@@ -6,6 +6,12 @@ import styles from "@/app/home.module.css";
 import SectionNav from "./shared/section-nav";
 import SectionBar from "./shared/section-bar";
 
+// 이미지 및 SVG 자산 임포트
+import footerDotsSvg from "./assets/footer-dots.svg";
+import footerPhotoImg from "./assets/footer-photo.png";
+import footerBgImg from "./assets/footer-bg.png";
+import footerLogoImg from "./assets/footer-logo.png";
+
 export default function FooterSection() {
   return (
     <section id="footer" className={styles.footer}>
@@ -15,7 +21,7 @@ export default function FooterSection() {
       {/* ── 좌측 SVG 장식 보더 ── */}
       <div className={`${styles.decorBorder} ${styles.decorBorderLeft}`}>
         <Image
-          src="/portfolio/footer-border.svg"
+          src={footerDotsSvg}
           alt=""
           width={8}
           height={894}
@@ -26,7 +32,7 @@ export default function FooterSection() {
       {/* ── 우측 SVG 장식 보더 ── */}
       <div className={`${styles.decorBorder} ${styles.decorBorderRight}`}>
         <Image
-          src="/portfolio/footer-border.svg"
+          src={footerDotsSvg}
           alt=""
           width={8}
           height={894}
@@ -89,7 +95,7 @@ export default function FooterSection() {
               }}
             >
               <Image
-                src="/portfolio/footer-photo.png"
+                src={footerPhotoImg}
                 alt="활동 사진 — 졸업/단체"
                 fill
                 className="object-cover"
@@ -151,7 +157,7 @@ export default function FooterSection() {
               }}
             >
               <Image
-                src="/portfolio/footer-photo-bg.png"
+                src={footerBgImg}
                 alt="배경 사진 — 건물 앞 두 사람"
                 fill
                 className="object-cover"
@@ -173,7 +179,7 @@ export default function FooterSection() {
               }}
             >
               <Image
-                src="/portfolio/footer-logo.png"
+                src={footerLogoImg}
                 alt=""
                 fill
                 className="object-contain"

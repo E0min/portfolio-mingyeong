@@ -7,6 +7,18 @@ import styles from "@/app/home.module.css";
 import SectionNav from "./shared/section-nav";
 import SectionBar from "./shared/section-bar";
 
+// 이미지 및 SVG 자산 임포트
+import about1Img from "./assets/about-1.png";
+import about2Img from "./assets/about-2.png";
+import about3Img from "./assets/about-3.png";
+import about4Img from "./assets/about-4.png";
+import about5Img from "./assets/about-5.png";
+import about6Img from "./assets/about-6.png";
+import about7Img from "./assets/about-7.png";
+import about8Img from "./assets/about-8.png";
+import aboutDotsSvg from "./assets/about-dots.svg";
+import aboutSidebarImg from "./assets/about-sidebar.png";
+
 /* ── 키워드 ↔ 사진 매핑 ID ── */
 type KeywordId =
   | "film" /* 영화 */
@@ -21,7 +33,7 @@ type KeywordId =
    모든 좌표를 부모 기준 %로 변환: left=(x-26)/657, top=(y-1350)/455
    keywordId: 해당 사진을 활성화할 키워드 (null = 호버 연동 없음) */
 interface PhotoItem {
-  src: string;
+  src: any;
   alt: string;
   figmaW: number; /* Figma 원본 프레임 너비 (px) — aspect-ratio 계산용 */
   figmaH: number; /* Figma 원본 프레임 높이 (px) */
@@ -40,7 +52,7 @@ const photos: PhotoItem[] = [
   {
     /* image 1787 (346:1236) — 사막/영화 장면
        Frame: x=70, y=1365, w=469, h=392 */
-    src: "/portfolio/about-photo-1.png",
+    src: about1Img,
     alt: "영화 촬영 현장 — 사막 배경",
     figmaW: 469,
     figmaH: 392,
@@ -54,7 +66,7 @@ const photos: PhotoItem[] = [
   {
     /* image 1792 (346:1241) — 세로 포트폴리오
        Frame: x=71, y=1350, w=451, h=455 */
-    src: "/portfolio/about-photo-2.png",
+    src: about2Img,
     alt: "시각적 구조 — 포트폴리오",
     figmaW: 451,
     figmaH: 455,
@@ -68,7 +80,7 @@ const photos: PhotoItem[] = [
   {
     /* image 1790 (346:1245) — 와이드 에디토리얼
        Frame: x=70, y=1379, w=560, h=381 */
-    src: "/portfolio/about-photo-3.png",
+    src: about3Img,
     alt: "에디토리얼 디자인 작업",
     figmaW: 560,
     figmaH: 381,
@@ -82,7 +94,7 @@ const photos: PhotoItem[] = [
   {
     /* image 1789 (346:1249) — 넓은 레이아웃
        Frame: x=98, y=1401, w=567, h=282 */
-    src: "/portfolio/about-photo-4.png",
+    src: about4Img,
     alt: "디지털 플랫폼 디자인",
     figmaW: 567,
     figmaH: 282,
@@ -96,7 +108,7 @@ const photos: PhotoItem[] = [
   {
     /* image 1788 (346:1252) — 매거진 형식
        Frame: x=126, y=1404, w=490, h=381 */
-    src: "/portfolio/about-photo-5.png",
+    src: about5Img,
     alt: "매거진 형식의 인터페이스",
     figmaW: 490,
     figmaH: 381,
@@ -110,7 +122,7 @@ const photos: PhotoItem[] = [
   {
     /* image 1622 (346:1274) — 트래블 진 (흰 보더)
        Frame: x=26, y=1366, w=573, h=295 */
-    src: "/portfolio/about-photo-6.png",
+    src: about6Img,
     alt: "큐레이션 기반 웹사이트 — 트래블 진",
     figmaW: 573,
     figmaH: 295,
@@ -124,7 +136,7 @@ const photos: PhotoItem[] = [
   {
     /* image 1804 (346:1311) — 명함/비주얼 (다크 보더)
        Frame: x=109, y=1380, w=574, h=304 */
-    src: "/portfolio/about-photo-7.png",
+    src: about7Img,
     alt: "명함 · 비주얼 아이덴티티",
     figmaW: 574,
     figmaH: 304,
@@ -138,7 +150,7 @@ const photos: PhotoItem[] = [
   {
     /* image 1791 (346:1376) — 최상단 사진
        Frame: x=96, y=1399, w=448, h=320 */
-    src: "/portfolio/about-photo-8.png",
+    src: about8Img,
     alt: "디자인 작업물",
     figmaW: 448,
     figmaH: 320,
@@ -201,13 +213,13 @@ export default function AboutSection() {
       {/* ── 좌측 점 장식 보더 (Figma 265:64) ── */}
       <div className={`${styles.decorBorder} ${styles.decorBorderLeft}`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/portfolio/about-border-dots.svg" alt="" className="h-full w-full" />
+        <img src={aboutDotsSvg.src} alt="" className="h-full w-full" />
       </div>
 
       {/* ── 우측 점 장식 보더 (Figma 265:51) ── */}
       <div className={`${styles.decorBorder} ${styles.decorBorderRight}`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/portfolio/about-border-dots.svg" alt="" className="h-full w-full" />
+        <img src={aboutDotsSvg.src} alt="" className="h-full w-full" />
       </div>
 
       {/* ── 섹션 번호 라벨 [1]~[4] ── */}
@@ -429,7 +441,7 @@ export default function AboutSection() {
               aria-label={isCardOpen ? "카드 접기" : "카드 펼치기"}
             >
               <Image
-                src="/portfolio/about-sidebar-photo.png"
+                src={aboutSidebarImg}
                 alt="프로필 사진"
                 width={130}
                 height={130}
