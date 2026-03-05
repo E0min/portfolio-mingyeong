@@ -44,8 +44,7 @@ const notoSansJP = Noto_Sans_JP({
 
 export const metadata: Metadata = {
   title: "PARK MIN GYEONG | Portfolio",
-  description:
-    "박민경 포트폴리오 — 에디토리얼 디자인, UI/UX, 브랜딩, 비주얼 아이덴티티",
+  description: "박민경 포트폴리오 — 에디토리얼 디자인, UI/UX, 브랜딩, 비주얼 아이덴티티",
 };
 
 export default function RootLayout({

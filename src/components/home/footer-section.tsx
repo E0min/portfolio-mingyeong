@@ -35,23 +35,20 @@ export default function FooterSection() {
       </div>
 
       {/* ── 메인 콘텐츠 ── */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 relative z-10 px-8">
+      <div className="relative z-10 grid grid-cols-1 gap-10 px-8 lg:grid-cols-2">
         {/* ── 좌측: 대형 타이포 + 사진 겹침 레이아웃 (Figma 340:1135) ──
             컨테이너: w=833, h=765 — 텍스트가 배경, 사진 2장이 위에 겹침 */}
-        <div
-          className="relative"
-          style={{ aspectRatio: "833 / 765" }}  /* Figma 원본 비율 */
-        >
+        <div className="relative" style={{ aspectRatio: "833 / 765" }} /* Figma 원본 비율 */>
           {/* ── 대형 타이포 — 배경 레이어 (Figma 338:1069) ──
               컨테이너 상단부터 시작, 약 69% 높이(526/765) 차지 */}
           <motion.div
             className={styles.footerTypo}
             style={{
-              position: "absolute",          /* 겹침 레이아웃 기준 */
+              position: "absolute" /* 겹침 레이아웃 기준 */,
               top: 0,
               left: 0,
               width: "100%",
-              zIndex: 1,                     /* 가장 뒤 — 사진이 위에 겹침 */
+              zIndex: 1 /* 가장 뒤 — 사진이 위에 겹침 */,
             }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -70,27 +67,36 @@ export default function FooterSection() {
           <motion.div
             className="absolute overflow-hidden"
             style={{
-              left: "18.96%",                /* (237-79) / 833 */
-              top: "18.82%",                 /* (4172-4028) / 765 */
-              width: "63.03%",               /* 525 / 833 */
-              height: "46.67%",              /* 357 / 765 */
-              border: "1px solid var(--home-border-gray)", /* #d7d7d7 */
-              borderRadius: "10px",          /* Figma: 둥근 모서리 */
-              zIndex: 2,                     /* 텍스트 위 */
+              left: "18.96%" /* (237-79) / 833 */,
+              top: "18.82%" /* (4172-4028) / 765 */,
+              width: "63.03%" /* 525 / 833 */,
+              height: "46.67%" /* 357 / 765 */,
+              border: "1px solid var(--home-border-gray)" /* #d7d7d7 외곽 보더 */,
+              borderRadius: "10px" /* Figma: 둥근 모서리 */,
+              zIndex: 2 /* 텍스트 위 */,
             }}
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <Image
-              src="/portfolio/footer-photo.png"
-              alt="활동 사진 — 졸업/단체"
-              fill
-              className="object-cover"
-              style={{ opacity: 0.65, borderRadius: "1px" }} /* Figma: 65% 불투명 */
-              sizes="(max-width: 768px) 100vw, 525px"
-            />
+            {/* 내부 이미지 — 보더와 상하좌우 동일 간격(8px) */}
+            <div
+              className="absolute overflow-hidden"
+              style={{
+                inset: "8px" /* 상하좌우 동일한 8px 간격 */,
+                borderRadius: "8px" /* 내부 이미지도 라운딩 */,
+              }}
+            >
+              <Image
+                src="/portfolio/footer-photo.png"
+                alt="활동 사진 — 졸업/단체"
+                fill
+                className="object-cover"
+                style={{ opacity: 0.65 }} /* Figma: 65% 불투명 */
+                sizes="(max-width: 768px) 100vw, 525px"
+              />
+            </div>
             {/* "Me!" 라벨 (Figma 338:1076)
                 left=(586-237)/525=66.48%, top=(4290-4172)/357=33.05% */}
             <span
@@ -101,7 +107,7 @@ export default function FooterSection() {
                 fontFamily: "var(--font-oswald), Oswald, sans-serif",
                 fontWeight: 500,
                 fontSize: "15px",
-                color: "#cbffbc",            /* Figma: 밝은 초록 */
+                color: "#cbffbc" /* Figma: 밝은 초록 */,
                 lineHeight: 1.486,
                 zIndex: 3,
               }}
@@ -118,13 +124,13 @@ export default function FooterSection() {
           <motion.div
             className="absolute overflow-hidden"
             style={{
-              left: "0.36%",                 /* (82-79) / 833 */
-              top: "45.88%",                 /* (4379-4028) / 765 */
-              width: "38.06%",               /* 317 / 833 */
-              height: "54.12%",              /* 414 / 765 */
-              border: "1px solid var(--home-border-gray)", /* #d7d7d7 */
-              borderRadius: "8px",           /* Figma: 8px */
-              zIndex: 2,                     /* 텍스트 위 */
+              left: "0.36%" /* (82-79) / 833 */,
+              top: "45.88%" /* (4379-4028) / 765 */,
+              width: "38.06%" /* 317 / 833 */,
+              height: "54.12%" /* 414 / 765 */,
+              border: "1px solid var(--home-border-gray)" /* #d7d7d7 */,
+              borderRadius: "8px" /* Figma: 8px */,
+              zIndex: 2 /* 텍스트 위 */,
             }}
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -138,9 +144,9 @@ export default function FooterSection() {
                 /* 프레임 안쪽 여백: left=(90-82)/317=2.52%, top=(4386-4379)/414=1.69% */
                 left: "2.52%",
                 top: "1.69%",
-                width: "94.64%",             /* 300 / 317 */
-                height: "96.62%",            /* 400 / 414 */
-                border: "1px solid #626262", /* Figma: 회색 보더 */
+                width: "94.64%" /* 300 / 317 */,
+                height: "96.62%" /* 400 / 414 */,
+                border: "1px solid #626262" /* Figma: 회색 보더 */,
                 borderRadius: "1px",
               }}
             >
@@ -149,7 +155,7 @@ export default function FooterSection() {
                 alt="배경 사진 — 건물 앞 두 사람"
                 fill
                 className="object-cover"
-                style={{ opacity: 0.74 }}    /* Figma: 74% 불투명 */
+                style={{ opacity: 0.74 }} /* Figma: 74% 불투명 */
                 sizes="317px"
               />
             </div>
@@ -171,7 +177,7 @@ export default function FooterSection() {
                 alt=""
                 fill
                 className="object-contain"
-                style={{ opacity: 0.41 }}    /* Figma: 41% 불투명 */
+                style={{ opacity: 0.41 }} /* Figma: 41% 불투명 */
               />
             </div>
           </motion.div>
@@ -208,16 +214,11 @@ export default function FooterSection() {
               }}
             >
               <p>
-                <span className="text-[24px] font-normal">
-                  UI·UX 디자인 실무 과정{" "}
-                </span>
+                <span className="text-[24px] font-normal">UI·UX 디자인 실무 과정 </span>
                 <span className="text-[18px]">2025.09 - 2026.02</span>
               </p>
               <p>소속/기관 그린컴퓨터아카데미 | 국비지원</p>
-              <p>
-                Figma를 활용한 IA · USER FLOW · 웹·모바일 UI 설계 및 프로토타입
-                제작
-              </p>
+              <p>Figma를 활용한 IA · USER FLOW · 웹·모바일 UI 설계 및 프로토타입 제작</p>
             </div>
           </div>
 
@@ -244,32 +245,25 @@ export default function FooterSection() {
               }}
             >
               <p>
-                <span className="text-[24px] font-normal">
-                  사이버한국외국어대학교 영문학 전공{" "}
-                </span>
+                <span className="text-[24px] font-normal">사이버한국외국어대학교 영문학 전공 </span>
                 <span className="text-[18px]">2025.09 - present</span>
               </p>
               <p>
                 정규 교환학생 프로그램을 통해{" "}
-                <span style={{ color: "var(--home-text-pink)" }}>
-                  해외 Lexis 기관과 연계
-                </span>
+                <span style={{ color: "var(--home-text-pink)" }}>해외 Lexis 기관과 연계</span>
                 하여 어학연수(국제교류) 과정 수료
               </p>
 
               <p className="mt-4">
-                <span className="text-[24px] font-normal">
-                  서울예술대학교 공연학부 연출 전공{" "}
-                </span>
+                <span className="text-[24px] font-normal">서울예술대학교 공연학부 연출 전공 </span>
                 <span className="text-[18px]">2022.03 - 2025.02</span>
               </p>
               <p>
-                공연 영상 연출 및 기획을 통해 서사, 공간, 시선의 흐름을 설계하는
-                사고방식을 체득
+                공연 영상 연출 및 기획을 통해 서사, 공간, 시선의 흐름을 설계하는 사고방식을 체득
               </p>
               <p>
-                관객 경험을 중심에 둔 연출 경험을 바탕으로 현재는 디지털
-                환경에서의 콘텐츠 경험 설계로 확장
+                관객 경험을 중심에 둔 연출 경험을 바탕으로 현재는 디지털 환경에서의 콘텐츠 경험
+                설계로 확장
               </p>
             </div>
           </div>

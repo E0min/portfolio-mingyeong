@@ -5,28 +5,41 @@
 
 /* ── 메인 컨테이너 ── */
 .main {
-  width: 100%;            /* 전체 너비 */
-  max-width: 1920px;      /* Figma 기준 최대 너비 */
-  margin: 0 auto;         /* 중앙 정렬 */
-  overflow: clip;          /* 자식 요소 넘침 방지 — sticky 동작 보존 (hidden은 sticky를 깨뜨림) */
-  position: relative;     /* 자식 absolute 기준 */
-  display: flex;          /* 섹션 세로 배치 */
-  flex-direction: column; /* 세로 방향 */
-  gap: clamp(8px, 0.73vw, 14px); /* 섹션 간 간격 — space-xs 토큰 */
+  width: 100%;
+  /* 전체 너비 */
+  max-width: 1920px;
+  /* Figma 기준 최대 너비 */
+  margin: 0 auto;
+  /* 중앙 정렬 */
+  overflow: clip;
+  /* 자식 요소 넘침 방지 — sticky 동작 보존 (hidden은 sticky를 깨뜨림) */
+  position: relative;
+  /* 자식 absolute 기준 */
+  display: flex;
+  /* 섹션 세로 배치 */
+  flex-direction: column;
+  /* 세로 방향 */
+  gap: clamp(8px, 0.73vw, 14px);
+  /* 섹션 간 간격 — space-xs 토큰 */
 }
 
 /* ── 히어로 섹션 ── */
 .hero {
-  position: relative;     /* 산란 텍스트의 기준점 */
+  position: relative;
+  /* 산란 텍스트의 기준점 */
   width: 100%;
-  aspect-ratio: 1920 / 1060; /* Figma 비율 유지 */
-  border-radius: 10px;    /* 둥근 모서리 */
-  overflow: hidden;       /* 내부 요소 넘침 방지 */
+  aspect-ratio: 1920 / 1060;
+  /* Figma 비율 유지 */
+  border-radius: 10px;
+  /* 둥근 모서리 */
+  overflow: hidden;
+  /* 내부 요소 넘침 방지 */
 }
 
 /* 히어로 배경 이미지 컨테이너 */
 .heroBg {
-  position: absolute;     /* 전체 영역 채움 */
+  position: absolute;
+  /* 전체 영역 채움 */
   inset: 0;
   border-radius: 10px;
 }
@@ -36,112 +49,164 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(15, 15, 15, 0.59); /* 어두운 반투명 오버레이 */
+  background: rgba(15, 15, 15, 0.59);
+  /* 어두운 반투명 오버레이 */
   border-radius: 10px;
 }
 
 /* 히어로 콘텐츠 영역 (산란 텍스트 컨테이너) */
 .heroContent {
-  position: relative;     /* 오버레이 위에 표시 */
-  z-index: 1;             /* 오버레이보다 위 */
+  position: relative;
+  /* 오버레이 위에 표시 */
+  z-index: 1;
+  /* 오버레이보다 위 */
   width: 100%;
   height: 100%;
 }
 
 /* ── 산란 텍스트 공통 ── */
 .scatteredText {
-  position: absolute;     /* 자유 배치 */
-  white-space: nowrap;    /* 줄바꿈 방지 */
+  position: absolute;
+  /* 자유 배치 */
+  white-space: nowrap;
+  /* 줄바꿈 방지 */
   line-height: normal;
 }
 
 /* ── 인페이지 네비게이션 ── */
 .inPageNav {
-  position: relative;      /* 일반 문서 흐름 — 스크롤에 따라 이동하지 않음 */
-  z-index: 50;             /* 다른 콘텐츠 위에 표시 */
-  background: var(--home-bg-darkgray); /* 다크 그레이 공통 배경 */
-  border-radius: 10px;     /* 섹션 컨테이너 공통 라운딩 */
-  padding: clamp(12px, 1.04vw, 20px) 0; /* 상하 여백 — 반응형 */
+  position: relative;
+  /* 일반 문서 흐름 — 스크롤에 따라 이동하지 않음 */
+  z-index: 50;
+  /* 다른 콘텐츠 위에 표시 */
+  background: var(--home-bg-darkgray);
+  /* 다크 그레이 공통 배경 */
+  border-radius: 10px;
+  /* 섹션 컨테이너 공통 라운딩 */
+  padding: clamp(12px, 1.04vw, 20px) 0;
+  /* 상하 여백 — 반응형 */
 }
 
 /* 탭 목록 행 (가로 배열) */
 .navTabsRow {
-  display: flex;             /* 가로 배치 */
-  align-items: flex-start;   /* 상단 정렬 — 번호가 아래로 붙도록 */
-  justify-content: center;   /* 가로 중앙 */
-  gap: clamp(40px, 5.2vw, 100px); /* 탭 간 간격 */
+  display: flex;
+  /* 가로 배치 */
+  align-items: flex-start;
+  /* 상단 정렬 — 번호가 아래로 붙도록 */
+  justify-content: center;
+  /* 가로 중앙 */
+  gap: clamp(40px, 5.2vw, 100px);
+  /* 탭 간 간격 */
 }
 
 /* 개별 탭 (이름 위 + 번호 아래 세로 배치) */
 .navTab {
   display: flex;
-  flex-direction: column;    /* 세로 배치: 이름 → 번호 */
-  align-items: flex-start;   /* 왼쪽 정렬 */
-  gap: 2px;                  /* 이름-번호 사이 최소 간격 */
-  font-family: var(--font-oswald), "Oswald", sans-serif; /* 탭 전용 폰트 */
-  font-weight: 300;          /* Light */
-  font-size: clamp(18px, 1.56vw, 30px); /* 반응형: 18px → 30px */
-  color: var(--home-text-light); /* #d1d5df — 다크 배경 위 밝은 텍스트 */
-  cursor: pointer;           /* 클릭 커서 */
-  transition: color 0.2s;    /* 호버 전환 */
-  background: none;          /* 버튼 기본 배경 제거 */
-  border: none;              /* 버튼 기본 테두리 제거 */
-  padding: 0;                /* 기본 패딩 제거 */
+  flex-direction: column;
+  /* 세로 배치: 이름 → 번호 */
+  align-items: flex-start;
+  /* 왼쪽 정렬 */
+  gap: 2px;
+  /* 이름-번호 사이 최소 간격 */
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  /* 탭 전용 폰트 */
+  font-weight: 300;
+  /* Light */
+  font-size: clamp(18px, 1.56vw, 30px);
+  /* 반응형: 18px → 30px */
+  color: var(--home-text-light);
+  /* #d1d5df — 다크 배경 위 밝은 텍스트 */
+  cursor: pointer;
+  /* 클릭 커서 */
+  transition: color 0.2s;
+  /* 호버 전환 */
+  background: none;
+  /* 버튼 기본 배경 제거 */
+  border: none;
+  /* 버튼 기본 테두리 제거 */
+  padding: 0;
+  /* 기본 패딩 제거 */
+  text-decoration: none;
+  /* Link(a태그) 기본 밑줄 제거 */
 }
 
 .navTab:hover {
-  color: var(--home-text-green); /* 호버 시 초록색 강조 */
+  color: var(--home-text-green);
+  /* 호버 시 초록색 강조 */
 }
 
 /* 탭 상단 행 (이름 + archive 인라인 배치) */
 .navTabTop {
   display: flex;
-  align-items: baseline;     /* 기준선 정렬 — 다른 크기 폰트 맞춤 */
-  gap: 8px;                  /* 이름-archive 사이 간격 */
+  align-items: baseline;
+  /* 기준선 정렬 — 다른 크기 폰트 맞춤 */
+  gap: 8px;
+  /* 이름-archive 사이 간격 */
 }
 
 /* 탭 번호 ([1], [2], ...) */
 .navNumber {
-  font-family: var(--font-inter), "Inter", sans-serif; /* 보조 폰트 */
-  font-size: clamp(14px, 0.94vw, 18px); /* 반응형: 14px → 18px */
-  color: rgba(220, 250, 219, 0.74); /* Figma: 초록 계열 반투명 */
+  font-family: var(--font-inter), "Inter", sans-serif;
+  /* 보조 폰트 */
+  font-size: clamp(14px, 0.94vw, 18px);
+  /* 반응형: 14px → 18px */
+  color: rgba(220, 250, 219, 0.74);
+  /* Figma: 초록 계열 반투명 */
 }
 
 /* (archive) 라벨 — Contact 탭 옆에 인라인 배치 */
 .navArchive {
-  font-family: var(--font-inter), "Inter", sans-serif; /* 보조 폰트 */
-  font-size: clamp(14px, 0.94vw, 18px); /* 반응형: 14px → 18px */
-  color: var(--home-text-light); /* Figma: #d1d5df */
+  font-family: var(--font-inter), "Inter", sans-serif;
+  /* 보조 폰트 */
+  font-size: clamp(14px, 0.94vw, 18px);
+  /* 반응형: 14px → 18px */
+  color: var(--home-text-light);
+  /* Figma: #d1d5df */
 }
 
 /* 장식 아이콘 (양 실루엣 — 탭 중앙 배치) */
 .navIcon {
-  width: clamp(36px, 3.13vw, 60px); /* Figma: 60×63px */
-  height: auto;              /* 비율 유지 */
-  opacity: 0.7;              /* 장식적 요소 — 약간 투명 */
-  align-self: center;        /* 세로 중앙 정렬 */
+  width: clamp(36px, 3.13vw, 60px);
+  /* Figma: 60×63px */
+  height: auto;
+  /* 비율 유지 */
+  opacity: 0.7;
+  /* 장식적 요소 — 약간 투명 */
+  align-self: center;
+  /* 세로 중앙 정렬 */
 }
 
 /* ── 어바웃 섹션 (네비바 + 콘텐츠 통합 컨테이너) ── */
 .about {
-  position: relative;                  /* 일반 문서 흐름 — 히어로 다음 순서대로 표시 */
-  z-index: 5;                          /* 히어로 위, 네비 아래 */
-  background: var(--home-bg-darkgray); /* 다크 그레이 공통 배경 */
-  border-radius: 10px;                /* 둥근 모서리 */
-  padding: 0 60px;                    /* 상하 0 — 네비/푸터바가 패딩 역할 */
-  display: flex;                       /* 세로 레이아웃: 네비 → 그리드 */
+  position: relative;
+  /* 일반 문서 흐름 — 히어로 다음 순서대로 표시 */
+  z-index: 5;
+  /* 히어로 위, 네비 아래 */
+  background: var(--home-bg-darkgray);
+  /* 다크 그레이 공통 배경 */
+  border-radius: 10px;
+  /* 둥근 모서리 */
+  padding: 0 60px;
+  /* 상하 0 — 네비/푸터바가 패딩 역할 */
+  display: flex;
+  /* 세로 레이아웃: 네비 → 그리드 */
   flex-direction: column;
-  min-height: 1000px;                 /* 충분한 높이 */
+  min-height: 1000px;
+  /* 충분한 높이 */
 }
 
 /* 어바웃 2컬럼 그리드 (사진 + 텍스트)
    Figma 346:1155 기준: 사진 그룹 우측(x=683) ~ 텍스트 좌측(x=781) = 98px 간격
    gap: 98/1920×100 = 5.1vw — 반응형으로 적용 */
 .aboutGrid {
-  display: grid;                       /* 좌우 2컬럼 */
-  grid-template-columns: 38% 1fr;     /* 사진 컬럼 — gap 포함 시 Figma 비율 근사 */
-  gap: clamp(24px, 5.1vw, 98px);      /* Figma: 사진~텍스트 간격 98px at 1920px */
-  flex: 1;                             /* 남은 공간 채움 */
+  display: grid;
+  /* 좌우 2컬럼 */
+  grid-template-columns: 38% 1fr;
+  /* 사진 컬럼 — gap 포함 시 Figma 비율 근사 */
+  gap: clamp(24px, 5.1vw, 98px);
+  /* Figma: 사진~텍스트 간격 98px at 1920px */
+  flex: 1;
+  /* 남은 공간 채움 */
 }
 
 /* 사진 콜라주 영역
@@ -150,29 +215,42 @@
    max-height: 뷰포트 - 네비 높이 - 섹션바 높이 → 바 영역 침범 방지
    overflow: hidden — 사진이 컨테이너 밖으로 넘치지 않도록 클리핑 */
 .aboutPhotos {
-  position: sticky;                      /* 스크롤 시 화면에 고정 */
-  top: 80px;                                /* 뷰포트 상단에 부착 — SectionNav가 비고정이므로 top: 0 */
-  align-self: start;                     /* 그리드 텍스트 높이에 맞춰 늘어나지 않음 */
-  height: clamp(450px, 30vw, 550px);    /* 사진 콜라주 전체 포함 높이 */
-  max-height: calc(100dvh);      /* 뷰포트 - 섹션바(~60px+여유) → 바 영역 침범 방지 */
-  overflow: hidden;                      /* 사진 넘침 방지 — 섹션바 영역 깔끔하게 분리 */
+  position: sticky;
+  /* 스크롤 시 화면에 고정 */
+  top: 80px;
+  /* 뷰포트 상단에 부착 — SectionNav가 비고정이므로 top: 0 */
+  align-self: start;
+  /* 그리드 텍스트 높이에 맞춰 늘어나지 않음 */
+  height: clamp(450px, 30vw, 550px);
+  /* 사진 콜라주 전체 포함 높이 */
+  max-height: calc(100dvh);
+  /* 뷰포트 - 섹션바(~60px+여유) → 바 영역 침범 방지 */
+  overflow: hidden;
+  /* 사진 넘침 방지 — 섹션바 영역 깔끔하게 분리 */
 }
 
 /* 사진 프레임 공통 */
 .photoFrame {
   position: absolute;
-  background: transparent;              /* 다크 배경 위 투명 */
-  border: 1px solid rgba(215, 215, 215, 0.2); /* 미세한 밝은 테두리 */
-  border-radius: 10px;   /* 둥근 프레임 */
-  overflow: hidden;       /* 이미지 잘림 */
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3); /* 다크 배경용 강조된 그림자 */
+  background: transparent;
+  /* 다크 배경 위 투명 */
+  border: 1px solid rgba(215, 215, 215, 0.2);
+  /* 미세한 밝은 테두리 */
+  border-radius: 10px;
+  /* 둥근 프레임 */
+  overflow: hidden;
+  /* 이미지 잘림 */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  /* 다크 배경용 강조된 그림자 */
 }
 
 /* ── 텍스트 영역 ── */
 .aboutText {
   display: flex;
-  flex-direction: column;  /* 세로 배치 */
-  gap: 24px;               /* 텍스트 블록 간격 */
+  flex-direction: column;
+  /* 세로 배치 */
+  gap: 24px;
+  /* 텍스트 블록 간격 */
 }
 
 /* 인사말 */
@@ -180,7 +258,8 @@
   font-family: var(--font-oswald), "Oswald", sans-serif;
   font-weight: 300;
   font-size: 30px;
-  color: var(--home-text-light);  /* 다크 배경 위 밝은 텍스트 */
+  color: var(--home-text-light);
+  /* 다크 배경 위 밝은 텍스트 */
 }
 
 /* 영문 소개 (파란 강조) */
@@ -189,7 +268,8 @@
   font-weight: 300;
   font-size: 21px;
   line-height: 1.6;
-  color: var(--home-text-light);  /* 다크 배경 위 밝은 텍스트 */
+  color: var(--home-text-light);
+  /* 다크 배경 위 밝은 텍스트 */
 }
 
 /* 한글 소개 (초록 강조) */
@@ -198,7 +278,8 @@
   font-weight: 300;
   font-size: 21px;
   line-height: 1.6;
-  color: var(--home-text-light);  /* 다크 배경 위 밝은 텍스트 */
+  color: var(--home-text-light);
+  /* 다크 배경 위 밝은 텍스트 */
 }
 
 /* 어바웃 섹션 내 주석 라벨 ([1], [2], (coming soon) 등) */
@@ -207,9 +288,11 @@
   font-family: var(--font-inter), "Inter", sans-serif;
   font-size: 18px;
   font-weight: 400;
-  color: rgba(209, 213, 223, 0.74); /* Figma 라벨 색상 */
+  color: rgba(209, 213, 223, 0.74);
+  /* Figma 라벨 색상 */
   line-height: normal;
-  z-index: 2;             /* 콘텐츠 위 */
+  z-index: 2;
+  /* 콘텐츠 위 */
 }
 
 /* ── 사이드 카드 (Hi, I'm Mean Girl) ── */
@@ -217,108 +300,156 @@
   position: absolute;
   right: 0;
   top: 0;
-  width: 130px;                          /* 최소 크기 — 읽기 방해 최소화 */
-  background: var(--home-bg-darkgray); /* 다크 그레이 */
-  border: 1px solid white;             /* 흰 테두리 */
-  border-radius: 14px;                 /* 비율 맞춘 둥근 모서리 */
+  width: 130px;
+  /* 최소 크기 — 읽기 방해 최소화 */
+  background: var(--home-bg-darkgray);
+  /* 다크 그레이 */
+  border: 1px solid white;
+  /* 흰 테두리 */
+  border-radius: 14px;
+  /* 비율 맞춘 둥근 모서리 */
   overflow: hidden;
   z-index: 10;
 }
 
 /* ── 푸터 바 (반복 사용) ── */
 .footerBar {
-  position: sticky;                    /* 스크롤 시 하단에 고정 */
-  bottom: 0;                           /* 뷰포트 하단에 부착 */
-  z-index: 40;                         /* 콘텐츠 위, 네비(50) 아래 */
+  position: sticky;
+  /* 스크롤 시 하단에 고정 */
+  bottom: 0;
+  /* 뷰포트 하단에 부착 */
+  z-index: 40;
+  /* 콘텐츠 위, 네비(50) 아래 */
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(30px, 4.17vw, 80px);      /* 아이템 간격 — 반응형 */
-  padding: clamp(10px, 0.83vw, 16px) 0; /* 상하 여백 — 반응형 */
+  gap: clamp(30px, 4.17vw, 80px);
+  /* 아이템 간격 — 반응형 */
+  padding: clamp(10px, 0.83vw, 16px) 0;
+  /* 상하 여백 — 반응형 */
   font-family: var(--font-oswald), "Oswald", sans-serif;
   font-weight: 300;
   font-size: 30px;
   color: var(--home-text-light);
-  background: var(--home-bg-darkgray); /* 다크 그레이 공통 배경 */
-  border-radius: 10px;                /* 섹션 컨테이너 공통 라운딩 */
+  background: var(--home-bg-darkgray);
+  /* 다크 그레이 공통 배경 */
+  border-radius: 10px;
+  /* 섹션 컨테이너 공통 라운딩 */
 }
 
 /* ── 포트폴리오 통합 섹션 (Works + NameCards) ── */
 .portfolio {
-  display: flex;            /* 다크/라이트 존 세로 배치 */
+  display: flex;
+  /* 다크/라이트 존 세로 배치 */
   flex-direction: column;
-  gap: 0;                   /* 존 사이 갭 없음 — 시각적 연속성 */
+  gap: 0;
+  /* 존 사이 갭 없음 — 시각적 연속성 */
 }
 
 /* 다크 존 — MEAN 카드 + Travel Zine + NameCards
    flex column + gap으로 자식 간 일관된 간격 관리 */
 .portfolioDark {
-  background: var(--home-bg-darkgray); /* 다크 그레이 공통 배경 */
-  border-radius: 10px;                 /* 섹션 컨테이너 공통 라운딩 */
-  padding: clamp(10px, 1.04vw, 20px);  /* 외부 여백 — 반응형 */
-  position: relative;                  /* 자식 absolute 기준점 */
-  display: flex;                       /* 세로 배치 */
+  background: var(--home-bg-darkgray);
+  /* 다크 그레이 공통 배경 */
+  border-radius: 10px;
+  /* 섹션 컨테이너 공통 라운딩 */
+  padding: clamp(10px, 1.04vw, 20px);
+  /* 외부 여백 — 반응형 */
+  position: relative;
+  /* 자식 absolute 기준점 */
+  display: flex;
+  /* 세로 배치 */
   flex-direction: column;
-  gap: clamp(10px, 1.04vw, 20px);      /* 자식(MEAN·TravelZine·CardGrid) 간 일관된 간격 */
+  gap: clamp(10px, 1.04vw, 20px);
+  /* 자식(MEAN·TravelZine·CardGrid) 간 일관된 간격 */
 }
 
-/* ── MEAN 이미지 행 — 두 이미지 가로 나란히 ── */
+/* ── MEAN 카드 행 — 명함 그리드와 동일한 1fr 1fr 구조 (Figma 401:379, 401:403) ── */
 .meanRow {
-  display: flex;                    /* 가로 나란히 */
-  gap: 0;                           /* 갭 없음 — 밀착 */
-  width: 100%;                      /* 부모 너비 전체 */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* 2열 균등 — 가로 꽉 참 */
+  gap: 0;
+  /* 갭 없음 — 밀착 */
 }
 
 /* MEAN 이미지 래퍼 — fill 기준점 */
 .meanImgWrap {
-  position: relative;               /* fill 이미지 기준점 */
-  flex: 1;                          /* 균등 분배 */
-  aspect-ratio: 279 / 112;          /* Figma 카드 비율 */
+  position: relative;
+  /* fill 이미지 기준점 */
+  overflow: hidden;
+  /* 이미지 넘침 방지 */
 }
 
-/* MEAN 이미지 — 프레임에 맞춰 채움 */
+/* MEAN 카드 링크 — 블록 표시 */
+.meanLink {
+  display: block;
+  /* 이미지 감싸는 블록 링크 */
+}
+
+/* MEAN 이미지 — 가로 꽉 채우며 원본 비율 유지 */
 .meanImg {
-  object-fit: cover;                /* 비율 유지하며 프레임 채움 */
-  object-position: center;          /* 중앙 정렬 */
+  position: relative !important;
+  /* fill 모드 해제 — 자연 크기 사용 */
+  width: 100%;
+  /* 가로 꽉 채움 */
+  height: auto !important;
+  /* 세로는 원본 비율에 맞춰 자동 */
+}
+
+/* ── BookSociety (Figma 428:373) ── */
+.bookSocietyLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.bookSociety {
+  position: relative;
+  /* aspect-ratio 제거: 내부 이미지의 비율에 따라 세로 높이가 자동으로 결정되도록 함 */
+  background: var(--home-bg-gray);
+  /* #e8e8e8 — 밝은 회색 배경 */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.bookSocietyFrame {
+  position: relative;
+  /* Figma 좌표 기반 배치 */
+  padding: 5px;
+
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* Travel Zine 링크 래퍼 */
+.travelZineLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
 
 /* ── Travel Zine 하단 섹션 (Figma 265:375) ──
    컨테이너: 1913×546, bg #e8e8e8, border 1px #d7d7d7, rounded 8px
    좌표 변환 기준: offsetX=11, offsetY=2419 */
 .travelZine {
-  position: relative;                    /* 산란 텍스트·바이닐의 기준점 */
-  aspect-ratio: 1913 / 546;             /* Figma 원본 비율 */
-  background: var(--home-bg-gray);       /* #e8e8e8 — 밝은 회색 배경 */
-  border: 1px solid var(--home-border-gray); /* #d7d7d7 — 미세한 테두리 */
-  border-radius: 8px;                    /* Figma: 8px 둥근 모서리 */
-  overflow: hidden;                      /* 바이닐·텍스트 넘침 방지 */
+  position: relative;
+  /* aspect-ratio 제거: 내부 이미지의 비율에 따라 세로 높이가 자동으로 결정되도록 함 */
+  background: var(--home-bg-gray);
+  /* #e8e8e8 — 밝은 회색 배경 */
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 /* 책장 배경 이미지 프레임 (Figma 265:377)
    left=(27.22-11)/1913=0.85%, top=(2433.75-2419)/546=2.70%
    w=1881.63/1913=98.36%, h=517.76/546=94.83% */
 .travelZineFrame {
-  position: absolute;                    /* Figma 좌표 기반 배치 */
-  left: 0.85%;                           /* (27.22 - 11) / 1913 */
-  top: 2.70%;                            /* (2433.75 - 2419) / 546 */
-  width: 98.36%;                         /* 1881.63 / 1913 */
-  height: 94.83%;                        /* 517.76 / 546 */
-  border: 5px solid var(--home-frame-border); /* #2b2929 — Figma 진한 다크 프레임 */
-  border-radius: 1px;                    /* Figma: 1px 미세 라운딩 */
-  overflow: hidden;                      /* 이미지 넘침 방지 */
-}
+  position: relative;
+  padding: 5px;
 
-/* 산란 텍스트 — Oswald Light, 노란색 반투명 (Figma 265:378~393)
-   공식: left = (figmaX - 11) / 1913, top = (figmaY - 2419) / 546 */
-.travelZineLabel {
-  position: absolute;                    /* 자유 배치 */
-  font-family: var(--font-oswald), "Oswald", sans-serif; /* Figma 지정 폰트 */
-  font-weight: 300;                      /* Light */
-  color: rgba(222, 224, 81, 0.66);       /* Figma: 노란색 66% 불투명 */
-  white-space: nowrap;                   /* 줄바꿈 방지 */
-  z-index: 2;                            /* 책장 배경 위 */
-  pointer-events: none;                  /* 클릭 투과 — 장식 요소 */
-  line-height: normal;                   /* Figma 기본 줄높이 */
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 /* ── 바이닐 그룹 (Figma 265:381) ──
@@ -326,46 +457,81 @@
    w=385.13/1913=20.13% — 원형이므로 aspect-ratio 1/1
    그룹 전체가 회전 → 디스크 + 텍스트 함께 회전 */
 .vinylGroup {
-  position: absolute;                    /* Figma 좌표 기반 배치 */
-  left: 68.97%;                          /* (1330.45 - 11) / 1913 */
-  top: 20.35%;                           /* (2530.10 - 2419) / 546 */
-  width: 20.13%;                         /* 385.13 / 1913 */
-  aspect-ratio: 1 / 1;                   /* 정원 — Figma 385×376 ≈ 원형 */
-  z-index: 3;                            /* 산란 텍스트 위 */
-  animation: vinylSpin 6s linear infinite; /* 그룹 통째로 회전 — LP 33⅓RPM */
+  position: absolute;
+  /* Figma 좌표 기반 배치 */
+  left: 68.97%;
+  /* (1330.45 - 11) / 1913 */
+  top: 20.35%;
+  /* (2530.10 - 2419) / 546 */
+  width: 20.13%;
+  /* 385.13 / 1913 */
+  aspect-ratio: 1 / 1;
+  /* 정원 — Figma 385×376 ≈ 원형 */
+  z-index: 3;
+  /* 산란 텍스트 위 */
+  animation: vinylSpin 6s linear infinite;
+  /* 그룹 통째로 회전 — LP 33⅓RPM */
 }
 
 /* LP 디스크 — CSS 그루브 패턴
    Figma: #2E2E2E 채움, #92C9BB 4% 불투명 테두리
    radial-gradient로 LP 홈(groove) 동심원 패턴 재현 */
 .vinylDisc {
-  position: absolute;                    /* 그룹 전체 채움 */
+  position: absolute;
+  /* 그룹 전체 채움 */
   inset: 0;
-  border-radius: 50%;                    /* 원형 */
+  border-radius: 50%;
+  /* 원형 */
   background:
     /* 중앙 센터홀 (작은 흰 점) */
     radial-gradient(circle, white 0.8%, transparent 1.2%),
-    /* 센터 레이블 영역 (약간 밝은 톤) */
-    radial-gradient(circle, #3a3a3a 12%, transparent 12.5%),
+    /* 센터 레이블 영역 (약간 밝은 톤) */ radial-gradient(circle, #3a3a3a 12%, transparent 12.5%),
     /* LP 그루브 — 동심원 패턴 */
-    radial-gradient(circle,
-      #2e2e2e 14%, #333 14.5%, #2e2e2e 15%,   /* 그루브 1 */
-      #2e2e2e 22%, #333 22.5%, #2e2e2e 23%,   /* 그루브 2 */
-      #2e2e2e 30%, #333 30.5%, #2e2e2e 31%,   /* 그루브 3 */
-      #2e2e2e 40%, #333 40.5%, #2e2e2e 41%,   /* 그루브 4 */
-      #2e2e2e 52%, #333 52.5%, #2e2e2e 53%,   /* 그루브 5 */
-      #2e2e2e 65%, #333 65.5%, #2e2e2e 66%,   /* 그루브 6 */
-      #2e2e2e 78%, #333 78.5%, #2e2e2e 79%,   /* 그루브 7 */
-      #2e2e2e 90%, #333 90.5%, #2e2e2e 91%    /* 그루브 8 — 외곽 */
-    );
-  background-color: #2e2e2e;             /* Figma: 기본 디스크 색상 */
-  border: 1px solid rgba(146, 201, 187, 0.04); /* Figma: #92C9BB 4% — 미세한 테두리 */
+    radial-gradient(
+        circle,
+        #2e2e2e 14%,
+        #333 14.5%,
+        #2e2e2e 15%,
+        /* 그루브 1 */ #2e2e2e 22%,
+        #333 22.5%,
+        #2e2e2e 23%,
+        /* 그루브 2 */ #2e2e2e 30%,
+        #333 30.5%,
+        #2e2e2e 31%,
+        /* 그루브 3 */ #2e2e2e 40%,
+        #333 40.5%,
+        #2e2e2e 41%,
+        /* 그루브 4 */ #2e2e2e 52%,
+        #333 52.5%,
+        #2e2e2e 53%,
+        /* 그루브 5 */ #2e2e2e 65%,
+        #333 65.5%,
+        #2e2e2e 66%,
+        /* 그루브 6 */ #2e2e2e 78%,
+        #333 78.5%,
+        #2e2e2e 79%,
+        /* 그루브 7 */ #2e2e2e 90%,
+        #333 90.5%,
+        #2e2e2e 91% /* 그루브 8 — 외곽 */
+      );
+  background-color: #2e2e2e;
+  /* Figma: 기본 디스크 색상 */
+  border: 1px solid rgba(146, 201, 187, 0.04);
+  /* Figma: #92C9BB 4% — 미세한 테두리 */
 }
 
 /* LP 회전 키프레임 */
 @keyframes vinylSpin {
-  from { transform: rotate(0deg); }      /* 시작: 0도 */
-  to { transform: rotate(360deg); }      /* 끝: 360도 → 무한 반복 */
+  from {
+    transform: rotate(0deg);
+  }
+
+  /* 시작: 0도 */
+  to {
+    transform: rotate(360deg);
+  }
+
+  /* 끝: 360도 → 무한 반복 */
 }
 
 /* 디스크 위 텍스트 — 디스크와 함께 회전 (Figma 265:383~387)
@@ -373,26 +539,44 @@
    Figma 원본: 56px on 385px disc → 14.55% of disc width
    반응형: 2.92vw (56/1920*100) */
 .vinylText {
-  position: absolute;                    /* 디스크 위 중앙 오버레이 */
-  inset: 0;                              /* 그룹 전체 영역 */
-  display: flex;                         /* 세로 중앙 정렬 */
+  position: absolute;
+  /* 디스크 위 중앙 오버레이 */
+  inset: 0;
+  /* 그룹 전체 영역 */
+  display: flex;
+  /* 세로 중앙 정렬 */
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: "Pretendard", sans-serif; /* Figma: Pretendard Regular */
+  font-family: "Pretendard", sans-serif;
+  /* Figma: Pretendard Regular */
   font-weight: 400;
-  font-size: clamp(16px, 2.92vw, 56px); /* Figma: 56px at 1920px → 2.92vw */
-  line-height: 1.2;                      /* 줄 간격 */
-  color: black;                          /* Figma: 검정 텍스트 */
-  letter-spacing: -0.03em;              /* Figma: -1.68px / 56px ≈ -0.03em */
-  pointer-events: none;                  /* 클릭 투과 */
+  font-size: clamp(16px, 2.92vw, 56px);
+  /* Figma: 56px at 1920px → 2.92vw */
+  line-height: 1.2;
+  /* 줄 간격 */
+  color: black;
+  /* Figma: 검정 텍스트 */
+  letter-spacing: -0.03em;
+  /* Figma: -1.68px / 56px ≈ -0.03em */
+  pointer-events: none;
+  /* 클릭 투과 */
+}
+
+/* 명함 그리드 링크 래퍼 — /name-card 라우팅 */
+.cardGridLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
 
 /* 명함 2×2 그리드 (Figma 346:1463~1482) */
 .cardGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 2열 균등 */
-  gap: 0;                          /* Figma: 카드 사이 갭 없음 — 인접 배치 */
+  grid-template-columns: 1fr 1fr;
+  /* 2열 균등 */
+  gap: 0;
+  /* Figma: 카드 사이 갭 없음 — 인접 배치 */
 }
 
 /* ── 개별 명함 카드 (Figma 새 구조) ──
@@ -403,23 +587,34 @@
    전체 카드 비율을 여기서 제어 — 955×435
    position: relative → 프레임이 absolute로 내부 채움 */
 .nameCard {
-  position: relative;                         /* 프레임 absolute 기준 */
-  background: var(--home-bg-gray);            /* #e8e8e8 — 밝은 회색 배경 */
-  border: 1px solid var(--home-border-gray);  /* #d7d7d7 — 미세한 테두리 */
-  border-radius: 8px;                         /* Figma: 7.94px ≈ 8px */
-  aspect-ratio: 955 / 435;                    /* Figma: 전체 카드 비율 고정 */
+  position: relative;
+  /* 프레임 absolute 기준 */
+  background: var(--home-bg-gray);
+  /* #e8e8e8 — 밝은 회색 배경 */
+  border: 1px solid var(--home-border-gray);
+  /* #d7d7d7 — 미세한 테두리 */
+  border-radius: 8px;
+  /* Figma: 7.94px ≈ 8px */
+  aspect-ratio: 955 / 435;
+  /* Figma: 전체 카드 비율 고정 */
 }
 
 /* 다크 프레임 (Figma: border 5px #2b2929, rounded 5px)
    absolute로 gray 래퍼 내부를 채움 (4px 여백 = gray 테두리 노출)
    내부 요소(content/divider/footer)는 퍼센트 기반 절대배치 → 비율 고정 */
 .nameCardFrame {
-  position: absolute;                         /* 래퍼 내부 채움 */
-  inset: clamp(3px, 0.26vw, 5px);             /* gray 래퍼 → dark 프레임 사이 여백 — meanCard와 통일 */
-  color: black;                               /* Figma: 카드 내 모든 텍스트 검정 — 부모 다크 색상 상속 차단 */
-  border: 5px solid var(--home-frame-border); /* #2b2929 — 진한 다크 테두리 */
-  border-radius: 5px;                         /* Figma: 4.94px ≈ 5px */
-  overflow: hidden;                           /* 내부 컬러 영역 넘침 방지 */
+  position: absolute;
+  /* 래퍼 내부 채움 */
+  inset: clamp(3px, 0.26vw, 5px);
+  /* gray 래퍼 → dark 프레임 사이 여백 — meanCard와 통일 */
+  color: black;
+  /* Figma: 카드 내 모든 텍스트 검정 — 부모 다크 색상 상속 차단 */
+  border: 5px solid var(--home-frame-border);
+  /* #2b2929 — 진한 다크 테두리 */
+  border-radius: 5px;
+  /* Figma: 4.94px ≈ 5px */
+  overflow: hidden;
+  /* 내부 컬러 영역 넘침 방지 */
 }
 
 /* 컬러 콘텐츠 영역 (Figma: 각 카드별 고유 배경색)
@@ -427,56 +622,118 @@
    Figma 기준: 콘텐츠 408 / 프레임내부 427 ≈ 95.6% (배경),
    디바이더 위치: (3414-3043)/427 ≈ 86.5% */
 .nameCardContent {
-  position: absolute;                         /* 퍼센트 기반 배치 */
+  position: absolute;
+  /* 퍼센트 기반 배치 */
   top: 0;
   left: 0;
   width: 100%;
-  height: 86.5%;                              /* Figma: 디바이더까지 = 프레임의 86.5% */
-  padding: clamp(10px, 1.04vw, 20px) clamp(16px, 1.875vw, 36px); /* 내부 텍스트 여백 */
-  overflow: hidden;                           /* 캐릭터 오버레이 넘침 방지 */
+  height: 86.5%;
+  /* Figma: 디바이더까지 = 프레임의 86.5% */
+  padding: clamp(10px, 1.04vw, 20px) clamp(16px, 1.875vw, 36px);
+  /* 내부 텍스트 여백 */
+  overflow: hidden;
+  /* 캐릭터 오버레이 넘침 방지 */
+}
+
+/* ── 명함 내부 요소간 간격 (NameCard Spacing) ── */
+.nameCardMain {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.nameCardMiddle {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex: 1;
+  margin-top: clamp(4px, 0.42vw, 8px);
+  /* 기존 0.5em 기준 통일 */
+}
+
+.nameCardBadge {
+  margin-top: clamp(2px, 0.25vw, 5px);
+  /* 기존 0.3em (DEVELOPER) 기준 */
+}
+
+.nameCardQuoteBox {
+  margin-top: clamp(4px, 0.42vw, 8px);
+  /* 기존 0.5em 기준 */
+}
+
+.nameCardVerticalWrap {
+  display: flex;
+  gap: clamp(1px, 0.1vw, 2px);
+  align-self: flex-start;
+  margin-top: clamp(-66px, -3.4vw, -56px);
+  /* 기존 -3.5em 기준 레이아웃 보정 */
 }
 
 /* SVG 구분선 (Figma: 프레임 높이의 86.5% 위치에 배치) */
 .nameCardDivider {
-  position: absolute;                         /* 퍼센트 기반 배치 */
-  top: 86.5%;                                 /* Figma: 디바이더 위치 */
+  position: absolute;
+  /* 퍼센트 기반 배치 */
+  top: 86.5%;
+  /* Figma: 디바이더 위치 */
   left: 0;
   width: 100%;
-  line-height: 0;                             /* 이미지 하단 여백 제거 */
+  line-height: 0;
+  /* 이미지 하단 여백 제거 */
 }
 
 .nameCardDivider img {
-  width: 100%;                                /* 프레임 너비에 맞춤 */
-  height: auto;                               /* 비율 유지 */
-  display: block;                             /* inline 여백 제거 */
+  width: 100%;
+  /* 프레임 너비에 맞춤 */
+  height: auto;
+  /* 비율 유지 */
+  display: block;
+  /* inline 여백 제거 */
 }
 
 /* 카드 하단 정적 마키 텍스트 (Figma: Comfortaa SemiBold 32.65px)
    절대배치: 프레임 높이의 88%~100% = 디바이더 아래 푸터 영역
    Figma 기준: (3424-3043)/427 ≈ 89% 시작, 하단까지 */
 .nameCardFooter {
-  position: absolute;                         /* 퍼센트 기반 배치 */
+  position: absolute;
+  /* 퍼센트 기반 배치 */
   left: 0;
   width: 100%;
-  top: 88%;                                   /* Figma: 푸터 텍스트 시작 위치 */
-  bottom: 0;                                  /* 프레임 하단까지 */
-  display: flex;                              /* 텍스트 수직 중앙 정렬 */
-  align-items: center;                        /* 수직 중앙 */
-  font-family: var(--font-comfortaa), "Comfortaa", sans-serif; /* Figma 지정 폰트 */
-  font-weight: 600;                           /* SemiBold — Figma 346:1480 */
-  font-size: clamp(14px, 1.7vw, 33px);       /* Figma: 32.652px at 1920px → 1.7vw */
-  color: black;                               /* Figma: 검정 텍스트 */
-  white-space: nowrap;                        /* 한 줄 유지 */
-  overflow: hidden;                           /* 넘침 숨김 */
-  padding: 0 clamp(2px, 0.1vw, 2px);         /* 좌우 여백만 */
+  top: 88%;
+  /* Figma: 푸터 텍스트 시작 위치 */
+  bottom: 0;
+  /* 프레임 하단까지 */
+  display: flex;
+  /* 텍스트 수직 중앙 정렬 */
+  align-items: center;
+  /* 수직 중앙 */
+  font-family: var(--font-comfortaa), "Comfortaa", sans-serif;
+  /* Figma 지정 폰트 */
+  font-weight: 600;
+  /* SemiBold — Figma 346:1480 */
+  font-size: clamp(14px, 1.7vw, 33px);
+  /* Figma: 32.652px at 1920px → 1.7vw */
+  color: black;
+  /* Figma: 검정 텍스트 */
+  white-space: nowrap;
+  /* 한 줄 유지 */
+  overflow: hidden;
+  /* 넘침 숨김 */
+  padding: 0 clamp(2px, 0.1vw, 2px);
+  /* 좌우 여백만 */
 }
 
 /* ── 푸터 섹션 ── */
 .footer {
-  background: var(--home-bg-darkgray);      /* 다크 그레이 공통 배경 */
-  border: 5px solid var(--home-bg-gray);   /* 밝은 테두리 */
-  border-radius: 10px;                    /* 섹션 컨테이너 공통 라운딩 */
-  padding: 0 60px;                        /* 상하 0 — 네비/섹션바가 패딩 역할 */
+  background: var(--home-bg-darkgray);
+  /* 다크 그레이 공통 배경 */
+  border: 5px solid var(--home-bg-gray);
+  /* 밝은 테두리 */
+  border-radius: 10px;
+  /* 섹션 컨테이너 공통 라운딩 */
+  padding: 0 60px;
+  /* 상하 0 — 네비/섹션바가 패딩 역할 */
   position: relative;
   min-height: 800px;
 }
@@ -485,70 +742,91 @@
 .footerTypo {
   font-family: "Pretendard", sans-serif;
   font-weight: 400;
-  font-size: clamp(60px, 5.7vw, 110px); /* 반응형 폰트 */
+  font-size: clamp(60px, 5.7vw, 110px);
+  /* 반응형 폰트 */
   line-height: 1;
-  color: var(--home-text-yellow);       /* 노란색 */
-  letter-spacing: -6.6px;               /* 좁은 자간 */
+  color: var(--home-text-yellow);
+  /* 노란색 */
+  letter-spacing: -6.6px;
+  /* 좁은 자간 */
 }
 
 /* ── SVG 장식 보더 (어바웃/푸터 양쪽 점 패턴) ── */
 .decorBorder {
   position: absolute;
-  top: 46px;               /* 섹션 상단 여백 */
-  width: 8px;              /* 점 직경 */
-  height: calc(100% - 100px); /* 상하 마진 제외 */
-  z-index: 2;              /* 콘텐츠 위 */
+  top: 46px;
+  /* 섹션 상단 여백 */
+  width: 8px;
+  /* 점 직경 */
+  height: calc(100% - 100px);
+  /* 상하 마진 제외 */
+  z-index: 2;
+  /* 콘텐츠 위 */
 }
 
 .decorBorderLeft {
-  left: 12px;   /* 왼쪽 위치 */
+  left: 12px;
+  /* 왼쪽 위치 */
 }
 
 .decorBorderRight {
-  right: 12px;  /* 오른쪽 위치 */
+  right: 12px;
+  /* 오른쪽 위치 */
 }
 
 /* ── 반응형 ── */
 @media (max-width: 1200px) {
   .navTabsRow {
-    gap: 30px;       /* 네비 간격 축소 */
-    flex-wrap: wrap;  /* 줄바꿈 허용 */
+    gap: 30px;
+    /* 네비 간격 축소 */
+    flex-wrap: wrap;
+    /* 줄바꿈 허용 */
   }
 
   .aboutGrid {
-    grid-template-columns: 1fr; /* 태블릿: 단일 컬럼 — 텍스트만 표시 */
+    grid-template-columns: 1fr;
+    /* 태블릿: 단일 컬럼 — 텍스트만 표시 */
   }
 
   .aboutPhotos {
-    display: none;              /* 태블릿: 사진 콜라주 숨김 */
+    display: none;
+    /* 태블릿: 사진 콜라주 숨김 */
   }
 
-  .meanRow > *:nth-child(2) {
-    display: none;                    /* 태블릿: 두 번째 이미지 숨김 */
+  .meanRow {
+    grid-template-columns: 1fr;
+    /* 태블릿: 단일 컬럼 */
   }
 
   .cardGrid {
-    grid-template-columns: 1fr; /* 단일 컬럼 */
+    grid-template-columns: 1fr;
+    /* 단일 컬럼 */
   }
 
   .footerBar {
-    flex-wrap: wrap;          /* 줄바꿈 허용 — gap/font-size는 clamp이 처리 */
+    flex-wrap: wrap;
+    /* 줄바꿈 허용 — gap/font-size는 clamp이 처리 */
   }
 }
 
 @media (max-width: 768px) {
   .hero {
-    aspect-ratio: auto;    /* 비율 해제 */
-    min-height: 80vh;      /* 모바일 최소 높이 */
+    aspect-ratio: auto;
+    /* 비율 해제 */
+    min-height: 80vh;
+    /* 모바일 최소 높이 */
   }
 
   .navTabsRow {
-    gap: 16px;       /* 모바일 간격 */
-    padding: 0 16px; /* 좌우 패딩 */
+    gap: 16px;
+    /* 모바일 간격 */
+    padding: 0 16px;
+    /* 좌우 패딩 */
   }
 
   .about {
-    padding: 10px 20px 20px; /* 모바일: 축소된 패딩 */
+    padding: 10px 20px 20px;
+    /* 모바일: 축소된 패딩 */
     min-height: auto;
   }
 
@@ -558,10 +836,11 @@
   }
 
   .sideCard {
-    position: relative; /* 모바일에서 상대 위치 */
+    position: relative;
+    /* 모바일에서 상대 위치 */
     width: 100%;
-    max-width: 280px;   /* 모바일에서 적당한 크기 */
+    max-width: 280px;
+    /* 모바일에서 적당한 크기 */
     margin-top: 20px;
   }
-
 }

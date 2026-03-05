@@ -1,0 +1,268 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Name Card 상세 페이지 (Figma 402:788)
+   1920 × 1060 기준 — 다크 테마
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.page {
+  min-height: 100vh;
+  background: white;
+}
+
+/* ════════════════════════════════════════════════════════
+   네비게이션 (Figma 402:924~936)
+   top=32, 가로 중앙, Name Card 활성
+   ════════════════════════════════════════════════════════ */
+.nav {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(40px, 5.2vw, 100px); /* 탭 사이 간격 */
+  padding: clamp(16px, 1.67vw, 32px) 0; /* top=32 → 1.67vw */
+}
+
+.navItem {
+  display: inline-flex;
+  align-items: center;
+}
+
+.navTab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-decoration: none;
+}
+
+.navLabel {
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 300; /* Oswald Light */
+  font-size: clamp(18px, 1.56vw, 30px); /* 30 / 1920 */
+  color: white;
+  line-height: normal;
+}
+
+.navActive .navLabel {
+  color: #d5ebd4;
+} /* Name Card 활성 색상 */
+
+.navNum {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: clamp(14px, 0.94vw, 18px); /* 18 / 1920 */
+  color: rgba(220, 250, 219, 0.74);
+}
+
+.navCat {
+  width: clamp(36px, 3.13vw, 60px); /* 고양이 실루엣 너비 */
+  height: auto;
+  opacity: 0.7;
+  margin: 0 clamp(10px, 1.3vw, 25px);
+}
+
+/* ════════════════════════════════════════════════════════
+   메인 카드 (Figma 402:788)
+   흰 배경 → bg 이미지(60%) → 다크 오버레이(77%)
+   ════════════════════════════════════════════════════════ */
+.card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1920 / 1060; /* Figma 프레임 비율 */
+  background: white; /* 흰 프레임 역할 */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* 배경 이미지 (Figma 402:791 — inset 13,6, opacity 60%) */
+.bgImg {
+  position: absolute;
+  top: 0.31vw;
+  left: 0.68vw;
+  right: 0.57vw;
+  bottom: 0.21vw;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+/* 다크 오버레이 (Figma 402:792 — rgba(0,0,0,0.77)) */
+.overlay {
+  position: absolute;
+  top: 0.31vw;
+  left: 0.68vw;
+  right: 0.57vw;
+  bottom: 0.21vw;
+  background: rgba(0, 0, 0, 0.77);
+  z-index: 2;
+}
+
+/* "GIRL" 워터마크 (Figma 402:800)
+   left=-1, top=-317, 1100px, Oswald Bold, rgba(0,0,0,0.22), tracking=-77px */
+.girlText {
+  position: absolute;
+  top: -16.51vw; /* -317 / 1920 */
+  left: -0.05vw; /* -1 / 1920 */
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: 57.29vw; /* 1100 / 1920 × 100 */
+  line-height: 0.8;
+  color: rgba(0, 0, 0, 0.22);
+  z-index: 3;
+  pointer-events: none;
+  letter-spacing: -0.07em; /* -77px / 1100 */
+}
+
+/* ════════════════════════════════════════════════════════
+   좌측 텍스트 블록 (Figma 402:805~806)
+   left=89, top=104
+   ════════════════════════════════════════════════════════ */
+.leftBlock {
+  position: absolute;
+  top: 5.42vw; /* 104 / 1920 */
+  left: 4.64vw; /* 89 / 1920 */
+  width: 33.85vw; /* ~650 / 1920 */
+  z-index: 5;
+}
+
+/* Name Card 타이틀 (Figma: Oswald Regular 30px, #dcfadb) */
+.txtTitle {
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: clamp(20px, 1.56vw, 30px); /* 30 / 1920 */
+  color: #dcfadb;
+  line-height: normal;
+  margin-bottom: clamp(8px, 0.75vw, 14px);
+}
+
+/* 초록 18px 라벨 (Visual Identity Card Design, NAME CARD, Archive 2026 등) */
+.txtGreen18 {
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 500;
+  font-size: clamp(14px, 0.94vw, 18px); /* 18 / 1920 */
+  color: #dcfadb;
+  line-height: normal;
+  margin-bottom: 4px;
+}
+
+/* 본문 텍스트 (흰색 18px, Regular) */
+.txtBody {
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: clamp(13px, 0.94vw, 18px); /* 18 / 1920 */
+  color: white;
+  line-height: 1.6;
+}
+
+/* 불릿 리스트 */
+.bullets {
+  list-style: disc;
+  padding-left: 1.2em;
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: clamp(13px, 0.94vw, 18px); /* 18 / 1920 */
+  color: white;
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+
+.green {
+  color: #dcfadb;
+}
+
+/* ════════════════════════════════════════════════════════
+   카드 그리드 이미지 (Figma 402:807)
+   black container: left=840, top=194, 1013×683
+   ════════════════════════════════════════════════════════ */
+.cardsGrid {
+  position: absolute;
+  top: 10.1vw; /* 194 / 1920 */
+  left: 43.75vw; /* 840 / 1920 */
+  width: 52.76vw; /* 1013 / 1920 */
+  aspect-ratio: 1013 / 683;
+  z-index: 4;
+  overflow: hidden;
+  border-radius: 10px; /* Figma: rounded-[10px] */
+  border: 1px solid #3b3b3b; /* Figma: border-[#3b3b3b] */
+}
+
+/* ════════════════════════════════════════════════════════
+   Reflection 블록 (Figma 402:802~803)
+   right edge at x=719, top=758, text-right
+   ════════════════════════════════════════════════════════ */
+.reflectionBlock {
+  position: absolute;
+  left: calc(
+    37.45vw - 33vw
+  ); /* 오른쪽 끝 37.45vw 기준 (transform 미사용 — Framer Motion 충돌 방지) */
+  top: 39.48vw; /* 758 / 1920 */
+  text-align: right;
+  z-index: 5;
+  width: 33vw; /* 충분한 너비 */
+}
+
+.reflectionLabel {
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 500;
+  font-size: clamp(14px, 0.94vw, 18px); /* 18px */
+  color: #e5fbe4; /* Figma: #e5fbe4 */
+  line-height: normal;
+  margin-bottom: 4px;
+}
+
+.reflectionBody {
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 500;
+  font-size: clamp(13px, 0.94vw, 18px); /* 18px */
+  color: white;
+  line-height: 1.6;
+  text-align: right;
+}
+
+/* ════════════════════════════════════════════════════════
+   반응형
+   ════════════════════════════════════════════════════════ */
+@media (max-width: 1200px) {
+  .card {
+    aspect-ratio: auto;
+    min-height: 100vh;
+  }
+
+  .leftBlock {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    padding: 5% 5% 0;
+  }
+
+  .cardsGrid {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 90%;
+    margin: 4% auto;
+  }
+
+  .reflectionBlock {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    padding: 0 5% 5%;
+    text-align: left;
+  }
+
+  .reflectionBody {
+    text-align: left;
+  }
+
+  .girlText {
+    font-size: 30vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    gap: clamp(20px, 5.33vw, 40px);
+    padding: 12px 0;
+  }
+}

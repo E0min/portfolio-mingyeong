@@ -7,8 +7,8 @@ import styles from "@/app/home.module.css";
 /* ── 산란 텍스트 타입 정의 ── */
 interface ScatteredText {
   text: string;
-  centerX: string;    /* 바운딩 박스 중심 X (%) — translate(-50%) 적용 */
-  centerY: string;    /* 바운딩 박스 중심 Y (%) — translate(-50%) 적용 */
+  centerX: string; /* 바운딩 박스 중심 X (%) — translate(-50%) 적용 */
+  centerY: string; /* 바운딩 박스 중심 Y (%) — translate(-50%) 적용 */
   fontSize: string;
   color: string;
   fontWeight: number;
@@ -180,8 +180,8 @@ const vectorLines = [
     svg: "/portfolio/hero-vector-301.svg",
     centerX: 59.35,
     centerY: 6.23,
-    width: 581.532,   /* SVG 원본 너비 (px) */
-    height: 6.066,    /* SVG 원본 높이 (px) */
+    width: 581.532 /* SVG 원본 너비 (px) */,
+    height: 6.066 /* SVG 원본 높이 (px) */,
     rotate: -3.41,
   },
   {
@@ -221,7 +221,7 @@ const vectorLines = [
     centerY: 42.89,
     width: 705.551,
     height: 30.641,
-    rotate: 88.20,
+    rotate: 88.2,
   },
   {
     /* Vector 300 (265:110, 그룹 274:665)
@@ -244,7 +244,7 @@ const vectorLines = [
        내부 SVG: 287.837×20px, stroke-width=6 */
     svg: "/portfolio/hero-vector-304.svg",
     centerX: 24.64,
-    centerY: 85.60,
+    centerY: 85.6,
     width: 287.837,
     height: 20,
     rotate: 15.86,
@@ -276,7 +276,6 @@ export default function HeroSection() {
 
       {/* ── 히어로 콘텐츠 (산란 텍스트 + 장식) ── */}
       <div className={styles.heroContent}>
-
         {/* ── CREATIve (세로 배치) ──
            bbox(1607, 78.35, 214×863) → center(1714, 510) = (89.28%, 48.27%)
            C/R/E/A/T 각각 한 줄, "Ive"는 한 줄로 합쳐서 표시
@@ -286,7 +285,7 @@ export default function HeroSection() {
             position: "absolute",
             left: `${CREATIVE_POS.left}%`,
             top: `${CREATIVE_POS.top}%`,
-            transform: "translate(-50%, -50%)", /* 중심점 기준 배치 */
+            transform: "translate(-50%, -50%)" /* 중심점 기준 배치 */,
           }}
         >
           <motion.div
@@ -294,10 +293,10 @@ export default function HeroSection() {
               fontSize: "clamp(48px, 6.25vw, 120px)",
               color: "#d1d5df",
               fontFamily: "Pretendard, sans-serif",
-              lineHeight: "85.45%",       /* 글자 간 밀착 */
+              lineHeight: "85.45%" /* 글자 간 밀착 */,
               letterSpacing: "-1.2px",
               whiteSpace: "nowrap",
-              rotate: "-4.02deg",         /* Figma 회전값 */
+              rotate: "-4.02deg" /* Figma 회전값 */,
             }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -340,9 +339,9 @@ export default function HeroSection() {
             key={index}
             style={{
               position: "absolute",
-              left: item.centerX,         /* 바운딩 박스 중심 X */
-              top: item.centerY,          /* 바운딩 박스 중심 Y */
-              transform: "translate(-50%, -50%)", /* 중심점 기준 배치 */
+              left: item.centerX /* 바운딩 박스 중심 X */,
+              top: item.centerY /* 바운딩 박스 중심 Y */,
+              transform: "translate(-50%, -50%)" /* 중심점 기준 배치 */,
             }}
           >
             <motion.p
@@ -367,7 +366,9 @@ export default function HeroSection() {
             >
               {item.text.includes("\n")
                 ? item.text.split("\n").map((line, i) => (
-                    <span key={i} className="block">{line}</span>
+                    <span key={i} className="block">
+                      {line}
+                    </span>
                   ))
                 : item.text}
             </motion.p>
@@ -383,14 +384,14 @@ export default function HeroSection() {
             key={`vec-${i}`}
             style={{
               position: "absolute",
-              left: `${line.centerX}%`,          /* 바운딩 박스 중심 X */
-              top: `${line.centerY}%`,           /* 바운딩 박스 중심 Y */
+              left: `${line.centerX}%` /* 바운딩 박스 중심 X */,
+              top: `${line.centerY}%` /* 바운딩 박스 중심 Y */,
               /* SVG 원본 크기를 뷰포트 비율로 스케일링 */
               width: `${(line.width / 1920) * 100}%`,
               height: `${(line.height / 1056) * 100}%`,
-              x: "-50%",                         /* Framer Motion: 자신 너비의 -50% */
-              y: "-50%",                         /* Framer Motion: 자신 높이의 -50% */
-              rotate: line.rotate,               /* Framer Motion: 회전 (deg) */
+              x: "-50%" /* Framer Motion: 자신 너비의 -50% */,
+              y: "-50%" /* Framer Motion: 자신 높이의 -50% */,
+              rotate: line.rotate /* Framer Motion: 회전 (deg) */,
             }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -401,9 +402,9 @@ export default function HeroSection() {
               src={line.svg}
               alt=""
               style={{
-                width: "100%",       /* 컨테이너 전체 채움 */
+                width: "100%" /* 컨테이너 전체 채움 */,
                 height: "100%",
-                display: "block",    /* 하단 여백 제거 */
+                display: "block" /* 하단 여백 제거 */,
               }}
             />
           </motion.div>
@@ -420,7 +421,8 @@ export default function HeroSection() {
               left: item.left,
               top: item.top,
               fontSize: "30px",
-              fontFamily: "var(--font-comfortaa), var(--font-noto-sans-jp), Comfortaa, Noto Sans JP, sans-serif",
+              fontFamily:
+                "var(--font-comfortaa), var(--font-noto-sans-jp), Comfortaa, Noto Sans JP, sans-serif",
               color: "#d1d5df",
               lineHeight: "normal",
               whiteSpace: "nowrap",
@@ -431,7 +433,9 @@ export default function HeroSection() {
           >
             {/* 블록 <p>로 각 글자를 세로 쌓기 */}
             {item.text.split("").map((char, j) => (
-              <p key={j} className="m-0">{char}</p>
+              <p key={j} className="m-0">
+                {char}
+              </p>
             ))}
           </motion.div>
         ))}
@@ -445,7 +449,8 @@ export default function HeroSection() {
             left: "93.44%",
             top: "37.97%",
             fontSize: "30px",
-            fontFamily: "var(--font-comfortaa), var(--font-noto-sans-jp), Comfortaa, Noto Sans JP, sans-serif",
+            fontFamily:
+              "var(--font-comfortaa), var(--font-noto-sans-jp), Comfortaa, Noto Sans JP, sans-serif",
             color: "#d1d5df",
             letterSpacing: "-20.4px",
             rotate: "90deg",
@@ -462,11 +467,12 @@ export default function HeroSection() {
             left: "93.96%",
             top: "48.11%",
             fontSize: "30px",
-            fontFamily: "var(--font-comfortaa), var(--font-noto-sans-jp), Comfortaa, Noto Sans JP, sans-serif",
+            fontFamily:
+              "var(--font-comfortaa), var(--font-noto-sans-jp), Comfortaa, Noto Sans JP, sans-serif",
             color: "#d1d5df",
             letterSpacing: "-20.4px",
             rotate: "-90deg",
-            scaleY: -1, /* Figma: -scale-y-100 (상하 반전) */
+            scaleY: -1 /* Figma: -scale-y-100 (상하 반전) */,
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -482,7 +488,8 @@ export default function HeroSection() {
           style={{
             left: "29.9%",
             top: "41.19%",
-            fontFamily: "var(--font-comfortaa), var(--font-noto-sans-jp), Comfortaa, Noto Sans JP, sans-serif",
+            fontFamily:
+              "var(--font-comfortaa), var(--font-noto-sans-jp), Comfortaa, Noto Sans JP, sans-serif",
             color: "#d1d5df",
             lineHeight: "normal",
           }}

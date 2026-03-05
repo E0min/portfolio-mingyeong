@@ -1,7 +1,8 @@
 import styles from "@/app/home.module.css";
-import MeanCardRow from "./mean-card-row";
+import MeanCard from "./mean-card";
+import BookSociety from "./book-society";
 import TravelZine from "./travel-zine";
-import NameCardGrid from "./name-card-grid";
+import NameCard from "./name-card";
 
 /* ── PortfolioSection — Works + NameCards 통합 오케스트레이터 ──
    다크 존(MEAN 카드 + Travel Zine)과 라이트 존(명함 4종 + 마키)을
@@ -12,9 +13,10 @@ export default function PortfolioSection() {
     <section className={styles.portfolio}>
       {/* ── 다크 존: MEAN 카드 + Travel Zine ── */}
       <div id="works" className={styles.portfolioDark}>
-        <MeanCardRow />
+        <MeanCard />
         <TravelZine />
-        <NameCardGrid />
+        <NameCard />
+        <BookSociety />
       </div>
     </section>
   );

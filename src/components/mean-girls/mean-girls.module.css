@@ -1,0 +1,418 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Mean Girls 상세 페이지 (Figma 402:577 — SubMeangirlsDark)
+   1920 × 1060 기준 — 다크 테마
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.page {
+  min-height: 100vh;
+  background: white;
+}
+
+/* ════════════════════════════════════════════════════════
+   네비게이션 (Figma 402:625~637)
+   top=32, 가로 중앙, Mean Girls 활성
+   ════════════════════════════════════════════════════════ */
+.nav {
+  position: relative;
+  z-index: 10; /* 모든 레이어 위에 표시 */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(40px, 5.2vw, 100px); /* 탭 사이 간격 */
+  padding: clamp(16px, 1.67vw, 32px) 0; /* top=32 → 1.67vw */
+}
+
+.navItem {
+  display: inline-flex;
+  align-items: center;
+}
+
+.navTab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-decoration: none;
+}
+
+.navLabel {
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 300; /* Oswald Light */
+  font-size: clamp(18px, 1.56vw, 30px); /* 30 / 1920 */
+  color: white;
+  line-height: normal;
+}
+
+.navActive .navLabel {
+  color: #d4ead3;
+} /* Mean Girls 활성 색상 */
+
+.navNum {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: clamp(14px, 0.94vw, 18px); /* 18 / 1920 */
+  color: rgba(220, 250, 219, 0.74);
+}
+
+.navCat {
+  width: clamp(36px, 3.13vw, 60px); /* 고양이 실루엣 */
+  height: auto;
+  opacity: 0.7;
+  margin: 0 clamp(10px, 1.3vw, 25px);
+}
+
+/* ════════════════════════════════════════════════════════
+   메인 카드 (Figma 402:577)
+   회색 외곽 → 흰 프레임 → bg 이미지(60%) → 다크 오버레이(77%)
+   ════════════════════════════════════════════════════════ */
+.card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1920 / 1060; /* Figma 프레임 비율 */
+  background: #e8e8e8; /* 402:581 회색 외곽 */
+  border: 1px solid #d7d7d7; /* Figma: border */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* 흰 프레임 (Figma 402:582 — bg-white, inset 8/3) */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0.16vw;
+  left: 0.42vw;
+  right: 0.42vw;
+  bottom: 0.36vw;
+  background: white;
+  z-index: 0;
+}
+
+/* 배경 이미지 (Figma 402:583 — opacity 60%, left=13, top=6) */
+.bgImg {
+  position: absolute;
+  top: 0.31vw;
+  left: 0.68vw;
+  right: 0.57vw;
+  bottom: 0.21vw;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+/* 다크 오버레이 (Figma 402:585 — rgba(0,0,0,0.77)) */
+.overlay {
+  position: absolute;
+  top: 0.31vw;
+  left: 0.68vw;
+  right: 0.57vw;
+  bottom: 0.21vw;
+  background: rgba(0, 0, 0, 0.77);
+  z-index: 2;
+}
+
+/* "EDIT" 워터마크 (Figma 402:586)
+   left=-10, top=-300, 1100px, Oswald Bold, rgba(0,0,0,0.26), tracking=-22px */
+.editText {
+  position: absolute;
+  top: -15.63vw; /* -300 / 1920 */
+  left: -0.52vw; /* -10 / 1920 */
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: 57.29vw; /* 1100 / 1920 × 100 */
+  line-height: 0.8;
+  color: rgba(0, 0, 0, 0.26); /* 검정 26% — 다크 테마 */
+  z-index: 3;
+  pointer-events: none;
+  letter-spacing: -0.02em; /* -22 / 1100 */
+}
+
+/* (archive) (Figma 402:584 — left=1453, top=569) */
+.archive {
+  position: absolute;
+  left: 75.68vw; /* 1453 / 1920 */
+  top: 29.64vw; /* 569 / 1920 */
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-weight: 400;
+  font-size: clamp(14px, 0.94vw, 18px);
+  color: rgba(209, 213, 223, 0.75);
+  z-index: 5;
+}
+
+/* ════════════════════════════════════════════════════════
+   좌측 텍스트 블록 (Figma 402:613~618)
+   left=114, top=118
+   ════════════════════════════════════════════════════════ */
+.leftBlock {
+  position: absolute;
+  top: 6.15vw; /* 118 / 1920 */
+  left: 5.94vw; /* 114 / 1920 */
+  width: 29.17vw; /* ~560 / 1920 */
+  z-index: 5;
+}
+
+/* MeanGirls 타이틀 (Figma: Oswald Regular 30px, #dcfadb) */
+.txtTitle {
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: clamp(20px, 1.56vw, 30px);
+  color: #dcfadb;
+  line-height: normal;
+  margin-bottom: clamp(8px, 0.75vw, 14px);
+}
+
+/* 초록 18px 라벨 (mean-girl.vercel.app, MeanGirls, Design Focus 등) */
+.txtGreen18 {
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: clamp(14px, 0.94vw, 18px);
+  color: #dcfadb;
+  line-height: normal;
+  margin-bottom: 4px;
+}
+
+/* 본문 텍스트 (흰색 18px, Regular) */
+.txtBody {
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: clamp(13px, 0.94vw, 18px);
+  color: white;
+  line-height: 1.6;
+}
+
+/* 불릿 리스트 */
+.bullets {
+  list-style: disc;
+  padding-left: 1.2em;
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: clamp(13px, 0.94vw, 18px);
+  color: white;
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+
+.green {
+  color: #dcfadb;
+}
+.greenMedium {
+  color: #dcfadb;
+  font-weight: 500;
+} /* Oswald Medium */
+.pink {
+  color: #f000ff;
+}
+
+/* ════════════════════════════════════════════════════════
+   Typography 블록 (Figma 402:620~624)
+   right edge ≈ x=684, top=657
+   ════════════════════════════════════════════════════════ */
+.typographyBlock {
+  position: absolute;
+  left: 35.63vw; /* 684 / 1920 — 오른쪽 끝 */
+  transform: translateX(-100%); /* 왼쪽으로 밀어 우측 정렬 */
+  top: 34.22vw; /* 657 / 1920 */
+  text-align: right;
+  z-index: 5;
+  white-space: nowrap; /* 줄바꿈 방지 */
+}
+
+.sectionLabel {
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: clamp(14px, 0.94vw, 18px);
+  color: #dcfadb;
+  line-height: normal;
+  margin-bottom: 4px;
+}
+
+.rightBody {
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: clamp(13px, 0.94vw, 18px);
+  color: white;
+  line-height: 1.6;
+  text-align: right;
+  white-space: normal;
+}
+
+/* ════════════════════════════════════════════════════════
+   Reflection 블록 (Figma 402:620, 402:622)
+   right edge ≈ x=684, top=819
+   ════════════════════════════════════════════════════════ */
+.reflectionBlock {
+  position: absolute;
+  left: 35.63vw; /* 684 / 1920 — Typography와 같은 우측 정렬 */
+  transform: translateX(-100%);
+  top: 42.66vw; /* 819 / 1920 */
+  text-align: right;
+  z-index: 5;
+}
+
+/* ════════════════════════════════════════════════════════
+   우측 사진 영역 (Figma 402:587~612)
+   left=813, top=213, w=1041, h=636
+   ════════════════════════════════════════════════════════ */
+.rightBlock {
+  position: absolute;
+  top: 11.09vw; /* 213 / 1920 */
+  left: 42.34vw; /* 813 / 1920 */
+  width: 54.22vw; /* 1041 / 1920 */
+  z-index: 5;
+}
+
+/* 메인 사진 (Figma 402:591 — 1041×636) */
+.photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1041 / 636;
+  overflow: visible;
+}
+
+/* 미니 내비 (Figma 402:595~599 — Oswald Regular 9.4px, #aa0c1c) */
+.miniNav {
+  position: absolute;
+  top: 16.19%; /* (315.85-213)/636 */
+  left: 42.44%; /* (1254.88-813)/1041 */
+  display: flex;
+  gap: clamp(8px, 0.94vw, 18px);
+  z-index: 2;
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: clamp(6px, 0.49vw, 9.4px);
+  color: #aa0c1c;
+  text-align: center;
+}
+
+/* Mean girls 링크 (Figma 402:607 — Oswald Light 25px, underline) */
+.meanLink {
+  position: absolute;
+  top: 3.9%; /* (237.84-213)/636 */
+  right: 0;
+  z-index: 2;
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 300;
+  font-size: clamp(14px, 1.31vw, 25.125px);
+  color: rgba(170, 12, 28, 0.82);
+  text-decoration: underline;
+}
+
+/* 영화 타이틀 (Figma 402:600~606 — Bebas Neue 41.875px, #aa0c1c) */
+.films {
+  position: absolute;
+  top: 52.03%; /* (543.92-213)/636 */
+  left: 2.4%; /* (837.94-813)/1041 */
+  z-index: 2;
+  font-family: var(--font-bebas-neue), "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: clamp(22px, 2.18vw, 41.875px);
+  color: #aa0c1c;
+  line-height: 1.05;
+}
+
+/* 화살표 (Figma 402:608 — left=1643, top=543, 61×57) */
+.arrow {
+  position: absolute;
+  top: 52.03%; /* (543.92-213)/636 */
+  left: 79.74%; /* (1643.09-813)/1041 */
+  width: clamp(30px, 3.16vw, 61px);
+  height: auto;
+  z-index: 2;
+}
+
+/* VIEW MORE (Figma 402:610~612 — circle left=1240, top=437, 187×187) */
+.viewMore {
+  position: absolute;
+  left: 41.02%; /* (1240-813)/1041 */
+  top: 35.22%; /* (437-213)/636 */
+  width: clamp(100px, 9.74vw, 187px);
+  height: clamp(100px, 9.74vw, 187px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  z-index: 3;
+}
+
+.vmCircle {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.vmText {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: clamp(18px, 1.67vw, 32px);
+  color: #dcfadb;
+  text-align: right;
+}
+
+/* ════════════════════════════════════════════════════════
+   반응형
+   ════════════════════════════════════════════════════════ */
+@media (max-width: 1200px) {
+  .card {
+    aspect-ratio: auto;
+    min-height: 100vh;
+  }
+
+  .leftBlock {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    padding: 5% 5% 0;
+  }
+
+  .rightBlock {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 90%;
+    margin: 4% auto;
+  }
+
+  .typographyBlock {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    text-align: left;
+    white-space: normal;
+    padding: 0 5%;
+  }
+
+  .rightBody {
+    text-align: left;
+  }
+
+  .reflectionBlock {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    text-align: left;
+    padding: 0 5% 5%;
+  }
+
+  .viewMore {
+    left: 50%;
+    top: auto;
+    bottom: 5%;
+    transform: translateX(-50%);
+  }
+  .archive {
+    display: none;
+  }
+  .editText {
+    font-size: 30vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    gap: clamp(20px, 5.33vw, 40px);
+    padding: 12px 0;
+  }
+}

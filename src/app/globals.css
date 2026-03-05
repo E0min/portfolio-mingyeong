@@ -6,75 +6,82 @@
   font-family: "Pretendard";
   font-weight: 100;
   font-style: normal;
-  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Thin.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Thin.woff2")
+    format("woff2");
   font-display: swap;
 }
 @font-face {
   font-family: "Pretendard";
   font-weight: 200;
   font-style: normal;
-  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-ExtraLight.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-ExtraLight.woff2")
+    format("woff2");
   font-display: swap;
 }
 @font-face {
   font-family: "Pretendard";
   font-weight: 300;
   font-style: normal;
-  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Light.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Light.woff2")
+    format("woff2");
   font-display: swap;
 }
 @font-face {
   font-family: "Pretendard";
   font-weight: 400;
   font-style: normal;
-  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Regular.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Regular.woff2")
+    format("woff2");
   font-display: swap;
 }
 @font-face {
   font-family: "Pretendard";
   font-weight: 500;
   font-style: normal;
-  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Medium.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Medium.woff2")
+    format("woff2");
   font-display: swap;
 }
 @font-face {
   font-family: "Pretendard";
   font-weight: 600;
   font-style: normal;
-  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-SemiBold.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-SemiBold.woff2")
+    format("woff2");
   font-display: swap;
 }
 @font-face {
   font-family: "Pretendard";
   font-weight: 700;
   font-style: normal;
-  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Bold.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Bold.woff2")
+    format("woff2");
   font-display: swap;
 }
 
 /* ── CSS 변수 (홈페이지 컬러 팔레트) ─────────────── */
 :root {
   /* 배경색 */
-  --home-bg-dark: #0f0f0f;        /* 히어로 오버레이, 다크 섹션 */
-  --home-bg-gray: #e8e8e8;        /* 네비게이션, 어바웃 배경 */
-  --home-bg-darkgray: #464646;    /* 다크 그레이 섹션 공통 배경 (네비, 어바웃, 작품, 푸터) */
-  --home-border-gray: #d7d7d7;    /* 테두리 공통 색 */
+  --home-bg-dark: #0f0f0f; /* 히어로 오버레이, 다크 섹션 */
+  --home-bg-gray: #e8e8e8; /* 네비게이션, 어바웃 배경 */
+  --home-bg-darkgray: #464646; /* 다크 그레이 섹션 공통 배경 (네비, 어바웃, 작품, 푸터) */
+  --home-border-gray: #d7d7d7; /* 테두리 공통 색 */
 
   /* 텍스트 색상 */
-  --home-text-light: #d1d5df;     /* 밝은 회색 (주요 텍스트) */
-  --home-text-blue: #31aace;      /* 파란 강조색 */
-  --home-text-green: #dcfadb;     /* 초록 강조색 */
-  --home-text-pink: #fddeff;      /* 핑크 강조색 */
-  --home-text-purple: #b9bfff;    /* 보라 링크색 */
-  --home-text-yellow: #e0e2ab;    /* 노란 장식 텍스트 */
+  --home-text-light: #d1d5df; /* 밝은 회색 (주요 텍스트) */
+  --home-text-blue: #31aace; /* 파란 강조색 */
+  --home-text-green: #dcfadb; /* 초록 강조색 */
+  --home-text-pink: #fddeff; /* 핑크 강조색 */
+  --home-text-purple: #b9bfff; /* 보라 링크색 */
+  --home-text-yellow: #e0e2ab; /* 노란 장식 텍스트 */
   --home-text-yellow-dim: rgba(222, 224, 81, 0.66); /* 투명 노란색 */
 
   /* 명함 카드 색상 */
-  --home-card-green: #c0d746;     /* 초록 명함 배경 */
-  --home-card-blue: #4a6799;      /* 파란 명함 배경 */
+  --home-card-green: #c0d746; /* 초록 명함 배경 */
+  --home-card-blue: #4a6799; /* 파란 명함 배경 */
 
   /* 기타 */
-  --home-frame-border: #2b2929;   /* 이미지 프레임 테두리 */
+  --home-frame-border: #2b2929; /* 이미지 프레임 테두리 */
 }
 
 /* ── 기본 리셋 및 전역 스타일 ────────────────────── */
@@ -101,10 +108,10 @@ body {
 
 img {
   max-width: 100%; /* 이미지 오버플로 방지 */
-  display: block;  /* 인라인 갭 제거 */
+  display: block; /* 인라인 갭 제거 */
 }
 
 a {
-  color: inherit;      /* 부모 색상 상속 */
+  color: inherit; /* 부모 색상 상속 */
   text-decoration: none; /* 기본 밑줄 제거 */
 }

@@ -1,0 +1,287 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Book Society 상세 페이지 (Figma 437:418)
+   1920 × 1060 기준 — 다크 테마
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.page {
+  min-height: 100vh;
+  background: white;
+}
+
+/* ════════════════════════════════════════════════════════
+   네비게이션
+   ════════════════════════════════════════════════════════ */
+.nav {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(40px, 5.2vw, 100px);
+  padding: clamp(16px, 1.67vw, 32px) 0;
+}
+
+.navItem {
+  display: inline-flex;
+  align-items: center;
+}
+
+.navTab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-decoration: none;
+}
+
+.navLabel {
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 300;
+  font-size: clamp(18px, 1.56vw, 30px);
+  color: white;
+  line-height: normal;
+}
+
+/* 활성 상태 탭 텍스트 색상 (현재 Figma에서는 뚜렷한 활성 상태 없음) */
+.navActive .navLabel {
+  color: #d5ebd4;
+}
+
+.navNum {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: clamp(14px, 0.94vw, 18px);
+  color: rgba(220, 250, 219, 0.74);
+}
+
+.navCat {
+  width: clamp(36px, 3.13vw, 60px);
+  height: auto;
+  opacity: 0.7;
+  margin: 0 clamp(10px, 1.3vw, 25px);
+}
+
+/* ════════════════════════════════════════════════════════
+   메인 카드
+   ════════════════════════════════════════════════════════ */
+.card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1920 / 1060;
+  background: #111;
+  border: 1px solid #3b3b3b;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* 배경 이미지 (Figma 437:421 — opacity 60%) */
+.bgImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+/* 다크 오버레이 (Figma 437:422 — rgba(0,0,0,0.77)) */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.77);
+  z-index: 2;
+}
+
+/* "GIRL" 워터마크 (Figma 437:430) */
+.girlText {
+  position: absolute;
+  top: -16.5vw;
+  left: 0;
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: 57.29vw;
+  /* 1100 / 1920 × 100 */
+  line-height: 0.8;
+  color: rgba(0, 0, 0, 0.22);
+  z-index: 3;
+  pointer-events: none;
+  letter-spacing: -0.07em;
+  /* -77 / 1100 */
+}
+
+/* ════════════════════════════════════════════════════════
+   좌측 텍스트 블록
+   ════════════════════════════════════════════════════════ */
+.leftBlock {
+  position: absolute;
+  top: 5.42vw;
+  /* 104 / 1920 */
+  left: 4.64vw;
+  /* 89 / 1920 */
+  width: 33vw;
+  z-index: 5;
+}
+
+/* 타이틀 (Figma: Oswald Regular 30px, #dcfadb) */
+.txtTitle {
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: clamp(20px, 1.56vw, 30px);
+  color: #dcfadb;
+  line-height: normal;
+  margin-bottom: clamp(16px, 1.5vw, 30px);
+}
+
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* 레이블 및 밸류 (Oswald Regular 18px, #dcfadb) */
+.txtLabel {
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: clamp(14px, 0.94vw, 18px);
+  color: #dcfadb;
+  line-height: normal;
+}
+
+.txtValue {
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: clamp(14px, 0.94vw, 18px);
+  color: #dcfadb;
+  line-height: normal;
+}
+
+.txtGreen18 {
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: clamp(14px, 0.94vw, 18px);
+  color: #dcfadb;
+  line-height: normal;
+  margin-bottom: 4px;
+}
+
+/* 불릿 리스트 */
+.bullets {
+  list-style: disc;
+  padding-left: 1.2em;
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: clamp(14px, 0.94vw, 18px);
+  color: #dcfadb;
+  line-height: 1.6;
+}
+
+/* ════════════════════════════════════════════════════════
+   Reflection 블록
+   ════════════════════════════════════════════════════════ */
+.reflectionBlock {
+  position: absolute;
+  top: 39.48vw;
+  /* 758 / 1920 */
+  left: 37.45vw;
+  /* 719 / 1920 */
+  transform: translateX(-100%);
+  text-align: right;
+  z-index: 5;
+}
+
+.reflectionLabel {
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 500;
+  /* Oswald Medium */
+  font-size: clamp(14px, 0.94vw, 18px);
+  color: #e5fbe4;
+  line-height: normal;
+  margin-bottom: clamp(6px, 0.5vw, 10px);
+}
+
+.reflectionBody {
+  font-family: var(--font-oswald), "Oswald", sans-serif;
+  font-weight: 500;
+  font-size: clamp(14px, 0.94vw, 18px);
+  color: white;
+  line-height: 1.6;
+}
+
+/* ════════════════════════════════════════════════════════
+   우측 사진 영역 (Figma 437:448)
+   left=825, top=134, w=1033, h=851
+   ════════════════════════════════════════════════════════ */
+.rightBlock {
+  position: absolute;
+  top: 6.98vw;
+  /* 134 / 1920 */
+  left: 42.97vw;
+  /* 825 / 1920 */
+  width: 53.8vw;
+  /* 1033 / 1920 */
+  z-index: 5;
+}
+
+/* 메인 사진 */
+.photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1033 / 851;
+  overflow: visible;
+}
+
+/* ════════════════════════════════════════════════════════
+   반응형
+   ════════════════════════════════════════════════════════ */
+@media (max-width: 1200px) {
+  .card {
+    aspect-ratio: auto;
+    min-height: 100vh;
+    padding-bottom: 50px;
+  }
+
+  .leftBlock {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    padding: 5% 5% 0;
+  }
+
+  .reflectionBlock {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    text-align: left;
+    padding: 5%;
+  }
+
+  .reflectionLabel,
+  .reflectionBody {
+    text-align: left;
+  }
+
+  .rightBlock {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 90%;
+    margin: 4% auto;
+  }
+
+  .girlText {
+    font-size: 30vw;
+    top: -5vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    gap: clamp(20px, 5.33vw, 40px);
+    padding: 12px 0;
+  }
+}
