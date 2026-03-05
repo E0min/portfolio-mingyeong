@@ -134,7 +134,7 @@ export default function TravelZineDetail() {
           rel="noopener noreferrer"
           className={styles.viewMore}
         >
-          <img src={vmCircleImg.src} alt="" className={styles.vmCircle} />
+          <Image src={vmCircleImg} alt="" fill className={styles.vmCircle} />
           <span className={styles.vmText}>VIEW MORE</span>
         </a>
 

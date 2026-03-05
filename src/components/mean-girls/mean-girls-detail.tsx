@@ -185,7 +185,9 @@ export default function MeanGirlsDetail() {
             </div>
 
             {/* 화살표 (402:608) */}
-            <img src={detailArrowImg.src} alt="" className={styles.arrow} />
+            <div className={styles.arrow}>
+              <Image src={detailArrowImg} alt="" fill />
+            </div>
 
             {/* VIEW MORE (402:610~612) */}
             <a
@@ -194,7 +196,7 @@ export default function MeanGirlsDetail() {
               rel="noopener noreferrer"
               className={styles.viewMore}
             >
-              <img src={detailCircleImg.src} alt="" className={styles.vmCircle} />
+              <Image src={detailCircleImg} alt="" fill className={styles.vmCircle} />
               <span className={styles.vmText}>VIEW MORE</span>
             </a>
           </div>

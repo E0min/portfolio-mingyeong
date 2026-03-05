@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "@/app/home.module.css";
 import { verticalColumns, cardsData } from "./portfolio-data";
 
@@ -50,17 +51,14 @@ export default function NameCard() {
                           pointerEvents: "none",
                         }}
                       >
-                        <img
+                        <Image
                           src={card.overlayImage}
                           alt=""
+                          fill
                           style={{
-                            position: "absolute",
-                            top: 0,
                             left: card.overlayImageLeft ?? "0%",
                             width: card.overlayImageWidth ?? "100%",
-                            height: "100%",
                             objectFit: "cover",
-                            maxWidth: "none",
                           }}
                         />
                       </div>
@@ -181,7 +179,7 @@ export default function NameCard() {
                   </div>
 
                   <div className={styles.nameCardDivider}>
-                    <img src={card.dividerSvg} alt="" />
+                    <Image src={card.dividerSvg} alt="" fill className="object-contain" />
                   </div>
 
                   <div

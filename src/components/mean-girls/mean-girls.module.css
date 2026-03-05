@@ -313,7 +313,7 @@
   top: 52.03%; /* (543.92-213)/636 */
   left: 79.74%; /* (1643.09-813)/1041 */
   width: clamp(30px, 3.16vw, 61px);
-  height: auto;
+  aspect-ratio: 61 / 57;
   z-index: 2;
 }
 

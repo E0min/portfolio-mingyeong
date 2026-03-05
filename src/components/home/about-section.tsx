@@ -180,11 +180,11 @@ export default function AboutSection() {
       <SectionNav />
 
       <div className={`${styles.decorBorder} ${styles.decorBorderLeft}`}>
-        <img src={aboutDotsSvg.src} alt="" className="h-full w-full" />
+        <Image src={aboutDotsSvg} alt="" fill className="object-contain" />
       </div>
 
       <div className={`${styles.decorBorder} ${styles.decorBorderRight}`}>
-        <img src={aboutDotsSvg.src} alt="" className="h-full w-full" />
+        <Image src={aboutDotsSvg} alt="" fill className="object-contain" />
       </div>
 
       {sectionLabels.map((label, i) => (

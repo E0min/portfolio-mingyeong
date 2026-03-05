@@ -2,6 +2,7 @@
 
 import { Fragment } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "@/app/home.module.css";
 
 // 네비게이션 양(Sheep) 아이콘 임포트
@@ -102,7 +103,9 @@ export default function SectionNav({
         })}
 
         {/* ── 양(Sheep) 아이콘: 절대 위치 배치 (Name Card와 겹침) ── */}
-        <img src={navSheepImg.src} alt="" className={styles.navSheepIcon} />
+        <div className={styles.navSheepIcon}>
+          <Image src={navSheepImg} alt="" fill className="object-contain" />
+        </div>
       </div>
     </nav>
   );

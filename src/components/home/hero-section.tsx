@@ -398,13 +398,12 @@ export default function HeroSection() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 + i * 0.1 }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={line.svg}
               alt=""
+              fill
+              className="object-contain"
               style={{
-                width: "100%" /* 컨테이너 전체 채움 */,
-                height: "100%",
                 display: "block" /* 하단 여백 제거 */,
               }}
             />
