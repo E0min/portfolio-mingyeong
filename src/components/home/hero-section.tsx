@@ -4,6 +4,17 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import styles from "@/app/home.module.css";
 
+// 이미지 및 SVG 자산 임포트
+import heroBgImg from "./assets/hero-bg.png";
+import heroMangaThumbImg from "./assets/hero-manga-thumb.png";
+
+import heroLine1Svg from "./assets/hero-line-1.svg";
+import heroLine2Svg from "./assets/hero-line-2.svg";
+import heroLine3Svg from "./assets/hero-line-3.svg";
+import heroLine4Svg from "./assets/hero-line-4.svg";
+import heroLine5Svg from "./assets/hero-line-5.svg";
+import heroLine6Svg from "./assets/hero-line-6.svg";
+
 /* ── 산란 텍스트 타입 정의 ── */
 interface ScatteredText {
   text: string;
@@ -177,7 +188,7 @@ const vectorLines = [
        wrapper: left=849, top=45.44, w=580.865, h=40.615
        center: (1139.43, 65.75) → (59.35%, 6.23%)
        내부 SVG: 581.532×6.066px, stroke-width=6 */
-    svg: "/portfolio/hero-vector-301.svg",
+    svg: heroLine3Svg.src,
     centerX: 59.35,
     centerY: 6.23,
     width: 581.532 /* SVG 원본 너비 (px) */,
@@ -190,7 +201,7 @@ const vectorLines = [
        wrapper: left=605.89, top=262.95, w=824.22, h=46.098
        center: (1018.0, 286.0) → (53.02%, 27.08%)
        내부 SVG: 824×20px, stroke-width=6 */
-    svg: "/portfolio/hero-vector-299.svg",
+    svg: heroLine1Svg.src,
     centerX: 53.02,
     centerY: 27.08,
     width: 824,
@@ -203,7 +214,7 @@ const vectorLines = [
        wrapper: left=124, top=361, w=458.878, h=236.318
        center: (353.44, 479.16) → (18.41%, 45.37%)
        내부 SVG: 506.306×12.289px, stroke-width=6 */
-    svg: "/portfolio/hero-vector-302.svg",
+    svg: heroLine4Svg.src,
     centerX: 18.41,
     centerY: 45.37,
     width: 506.306,
@@ -216,7 +227,7 @@ const vectorLines = [
        wrapper: left=1572.23, top=99.8, w=52.77, h=706.165
        center: (1598.62, 452.88) → (83.26%, 42.89%)
        내부 SVG: 705.551×30.641px, stroke-width=8 (두꺼운 선) */
-    svg: "/portfolio/hero-vector-303.svg",
+    svg: heroLine5Svg.src,
     centerX: 83.26,
     centerY: 42.89,
     width: 705.551,
@@ -229,7 +240,7 @@ const vectorLines = [
        wrapper: left=994, top=782, w=254.761, h=169.382
        center: (1121.38, 866.69) → (58.41%, 82.07%)
        내부 SVG: 287.837×20px, stroke-width=6 */
-    svg: "/portfolio/hero-vector-300.svg",
+    svg: heroLine2Svg.src,
     centerX: 58.41,
     centerY: 82.07,
     width: 287.837,
@@ -242,7 +253,7 @@ const vectorLines = [
        wrapper: left=332, top=855, w=282.342, h=97.915
        center: (473.17, 903.96) → (24.64%, 85.60%)
        내부 SVG: 287.837×20px, stroke-width=6 */
-    svg: "/portfolio/hero-vector-304.svg",
+    svg: heroLine6Svg.src,
     centerX: 24.64,
     centerY: 85.6,
     width: 287.837,
@@ -254,8 +265,8 @@ const vectorLines = [
 /* ── 일본어 세로 텍스트 (히어로 우측) ──
    Figma: left 1837/1795/1757px → %로 변환 */
 const japaneseVertical = [
-  { text: "逸れても道はある", left: "95.68%", top: "28.31%" },
-  { text: "人生にキク", left: "93.49%", top: "28.5%" },
+  { text: "逸れて도道はある", left: "95.68%", top: "28.31%" },
+  { text: "人生에キク", left: "93.49%", top: "28.5%" },
   { text: "ラジオ", left: "91.51%", top: "28.31%" },
 ];
 
@@ -265,7 +276,7 @@ export default function HeroSection() {
       {/* ── 배경 이미지 + 오버레이 ── */}
       <div className={styles.heroBg}>
         <Image
-          src="/portfolio/hero-manga-bg.png"
+          src={heroBgImg}
           alt="만화 일러스트 배경"
           fill
           priority
@@ -497,9 +508,9 @@ export default function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.1 }}
         >
-          <p>喜びは、過ぎ去ったあとに、悲しみに変わることがある。</p>
-          <p>苦しみも、振り返ってみれば成長だった。</p>
-          <p>悲しみも、過ぎてしまえば、とても人間らしい人生だった。</p>
+          <p>喜び는, 過ぎ去ったあとに, 悲しみに変わることがある。</p>
+          <p>苦しみ도, 振り返ってみれば成長だった。</p>
+          <p>悲しみ도, 過ぎてしまえば, とても人間らしい人生だった。</p>
         </motion.div>
 
         {/* ── 영어 인용구 ──
@@ -580,7 +591,7 @@ export default function HeroSection() {
           transition={{ duration: 0.5, delay: 1.3 }}
         >
           <Image
-            src="/portfolio/hero-manga-small.png"
+            src={heroMangaThumbImg}
             alt="작은 만화 이미지"
             width={64}
             height={68}
