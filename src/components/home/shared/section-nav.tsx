@@ -24,7 +24,7 @@ export const commonTabs: NavTab[] = [
   { label: "Mean Girls", number: "[1]", targetId: "works", href: "/mean-girls" },
   { label: "Travel zine", number: "[2]", targetId: "works", href: "/travel-zine" },
   { label: "Name Card", number: "[3]", targetId: "namecards", href: "/name-card" },
-  { label: "Commissioned Work", number: "[4]", targetId: "works", href: "/#works" },
+  { label: "Commissioned Work", number: "[4]", targetId: "works", href: "/commissioned-work" },
   { label: "Contact", number: "[5]", targetId: "footer", href: "/#footer" },
 ];
 
