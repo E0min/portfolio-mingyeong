@@ -12,7 +12,7 @@ import bookSocietyImg from "./assets/book-society.png";
 export default function BookSociety() {
   return (
     <section id="book-society" className="relative mt-[-1px]">
-      <Link href="/book-society" className={styles.portfolioItem}>
+      <Link href="/commissioned-work" className={styles.portfolioItem}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
